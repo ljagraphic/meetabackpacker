@@ -6,14 +6,18 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
-class HomeController extends Controller {
+
+class SignInController extends Controller {
 
     /**
-     * @Route("/")
-     * @Route("/home", name="home")
+     * 
+     * @Route("/signin", name="signin")
      */
-    public function index() {
-        return $this->render('home.html.twig');
+    public function signin()
+    {
+        return $this->render('signin.html.twig');
+        
     }
-
+    
+    
 }
