@@ -2,15 +2,15 @@
 
 namespace App\Repository;
 
-use App\Entity\Advices;
+use App\Entity\Advice;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
-class AdvicesRepository extends ServiceEntityRepository
+class AdviceRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Advices::class);
+        parent::__construct($registry, Advice::class);
     }
 
     /*
