@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * 
- *@Route("/admin/advice" name="advice")
+ *@Route("/advice" name="advices")
  */
 class AdviceController extends Controller{
     
