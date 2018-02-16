@@ -2,22 +2,27 @@
 
 namespace App\Controller;
 
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use App\Entity\User;
+use App\Form\FormType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
 
 
 class SignUpController extends Controller {
-
+    
     /**
-     * 
      * @Route("/signup", name="signup")
      */
-    public function signup()
+    public function SignUpForm()
+            
     {
-        return $this->render('signup.html.twig');
+        $user = new User();
+        $form = $this->CreateForm(FormType::class, $user);
+        return $this->render('signup.html.twig', [ 'form' => $form->createView() ]);
+
         
     }
-    
+            
+          
     
 }

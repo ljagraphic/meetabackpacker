@@ -111,7 +111,7 @@ class User {
     
     public function __construct() {
         $this->myActivities = new ArrayCollection();
-        $this->$createdActivities = new ArrayCollection();
+        $this->createdActivities = new ArrayCollection();
         $this->advices = new ArrayCollection();
     }
     
