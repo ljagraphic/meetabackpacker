@@ -36,7 +36,7 @@ class FormType extends AbstractType
             ->add('origin_country', CountryType::class)
             ->add('active', TextType::class)
             ->add('role', TextType::class)
-            ->add('save', SubmitType::class, array('label' => 'SIGN UP'))
+            
             ->getForm()                  
         ;
     }
