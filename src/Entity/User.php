@@ -92,7 +92,7 @@ class User {
     private $role;
 
     /**
-     * @ORM\OneToMany(targetEntity="Advice", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="Advice", mappedBy="users")
      * @var Collection
      */
     private $advices;
