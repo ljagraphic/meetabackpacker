@@ -2,7 +2,7 @@
 
 namespace App\Repository;
 
-use App\Entity\Activities;
+use App\Entity\Activity;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
 
@@ -10,7 +10,7 @@ class ActivitiesRepository extends ServiceEntityRepository
 {
     public function __construct(RegistryInterface $registry)
     {
-        parent::__construct($registry, Activities::class);
+        parent::__construct($registry, Activity::class);
     }
 
     /*

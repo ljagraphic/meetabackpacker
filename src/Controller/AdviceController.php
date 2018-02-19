@@ -10,7 +10,7 @@ class AdviceController extends Controller {
 
     /**
      * 
-     * @Route("/advice", name="advice_list")
+     * @Route("/advice/list", name="advice_list")
      */
      public function getList(AdviceRepository $adviceRepo)
     {
