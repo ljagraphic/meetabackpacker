@@ -47,7 +47,7 @@ class Advice {
     private $activity;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", inversedBy="advice")
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="advices")
      * @var User
      */
     private $user;
