@@ -20,6 +20,7 @@ class SignUpController extends Controller {
     public function SignUpForm(ObjectManager $manager, Request $request ,UserPasswordEncoderInterface $passwordEncoder)
             
     {
+        
         $user = new User();
         $form = $this->CreateForm(FormType::class, $user)
         ->add('SignUp', SubmitType::class);  
@@ -34,12 +35,7 @@ class SignUpController extends Controller {
            $avatar->move('uploads/avatar', $fileName);
            $user->setAvatar($fileName);
 
-
-           
-           
-           
-           
-           
+                 
            //Enregistrement du user
            $manager->persist($user);
            $manager->flush();
@@ -51,7 +47,21 @@ class SignUpController extends Controller {
         
     }
  
-
+    /**
+     * @Route("/userprofile", name="userprofile")
+     */
+    
+    public function myProfile(){
+        
+        $this->denyAccessUnlessGranted(
+                'ROLE_USER',
+                null,
+                'Vous devez vous  connecté pour acceder a cette page'
+                
+                );
+        return $this->render('userprofile.html.twig');
+    }
+    
     
     
           

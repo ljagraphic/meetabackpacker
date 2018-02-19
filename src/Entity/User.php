@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity(repositoryClass="UserRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User {
+class User implements UserInterface, \Serializable {
 
     /**
      * @ORM\Id
@@ -96,72 +96,61 @@ class User {
      * @var Collection
      */
     private $advices;
-    
+
     /**
      * @ORM\ManyToMany(targetEntity="Activity", mappedBy="users")
      * @var Collection
      */
     private $myActivities;
-    
-    
+
     /**
      * @ORM\OneToMany(targetEntity="Activity", mappedBy="creator")
      * @var Collection
      */
     private $createdActivities;
-    
-    
-        public function getSalt()
-    {
+
+    public function getSalt() {
         // you *may* need a real salt depending on your encoder
         // see section on salt below
         return null;
     }
-    
-    public function getRoles()
-    {   //"ROLE_USER!ROLE_ADMIN"
-        return explode('|', $this->roles);
+
+    public function getRoles() {   //"ROLE_USER|ROLE_ADMIN"
+        return explode('|', $this->role);
     }
-    
-    public function eraseCredentials()
-    {
+
+    public function eraseCredentials() {
+        
     }
 
     /** @see \Serializable::serialize() */
-    public function serialize()
-    {
+    public function serialize() {
         return serialize(array(
             $this->id,
-            $this->username,
+            $this->userName,
             $this->password,
-            // see section on salt below
-            // $this->salt,
+                // see section on salt below
+                // $this->salt,
         ));
     }
 
     /** @see \Serializable::unserialize() */
-    public function unserialize($serialized)
-    {
+    public function unserialize($serialized) {
         list (
-            $this->id,
-            $this->username,
-            $this->password,
-            // see section on salt below
-            // $this->salt
-        ) = unserialize($serialized);
+                $this->id,
+                $this->userName,
+                $this->password,
+                // see section on salt below
+                // $this->salt
+                ) = unserialize($serialized);
     }
-    
-    
-    
-    
+
     public function __construct() {
         $this->myActivities = new ArrayCollection();
         $this->createdActivities = new ArrayCollection();
         $this->advices = new ArrayCollection();
-        $this->user = new ArrayCollection();
-        
     }
-    
+
     public function getId() {
         return $this->id;
     }
@@ -306,6 +295,4 @@ class User {
         return $this;
     }
 
-
-    
 }
