@@ -46,6 +46,29 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
 
+        <!-- JAVASCRIPTS -->
+        <script>
+            var googleReady = false;
+            var stackGoogle = []; // stack google contient l'ensemble des fonctions
+            
+            function googlePush(callback) {
+                if(googleReady) {
+                    callback();
+                } else {
+                    // qui seront exécutées lorsque google sera prêt
+                    stackGoogle.push(callback);
+                }
+            }
+            
+            function initMap() {
+                googleReady = true;
+                for (callback of stackGoogle) {
+                    callback();
+                }
+                delete(stackGoogle);
+            }
+        </script>
+
     </head>
 
     <body id="body" class="body-wrapper boxed-menu" >
@@ -161,7 +184,7 @@
                 </div>
             </header>
             <section class="clearfix bg-light">
-            <div class="container">
+                <div class="container">
 
                 {% block body %}{% endblock body %}
             </div>
@@ -284,7 +307,7 @@
         </div>
     </div>
 
-    <!-- JAVASCRIPTS -->
+
     <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('plugins/jquery/jquery-migrate.js') }}"></script>
     <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
@@ -300,14 +323,14 @@
     <script src="{{ asset('plugins/fancybox/jquery.fancybox.min.js') }}"></script>
     <script src="{{ asset('plugins/isotope/isotope-triger.min.js') }}"></script>
     <script src="{{ asset('plugins/rateyo/jquery.rateyo.min.js') }}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK5dZ43HxZfc-rRmD8YA1UD81dqxelKsw"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK5dZ43HxZfc-rRmD8YA1UD81dqxelKsw&callback=initMap"></script>
     <script src="{{ asset('plugins/map/js/rich-marker.js') }}"></script>
     <script src="{{ asset('plugins/map/js/infobox_packed.js') }}"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script src="js/map.js"></script>
     <script src="js/custom.js"></script>
-    
 
+    
 
 </body>
 

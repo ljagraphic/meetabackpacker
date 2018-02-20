@@ -27,29 +27,63 @@
         #map {
             height: 400px;
             width: 100%;
-           }
+        }
     </style>
+
+
     <div id="map"></div>
-    
-  {{form_start (form) }}    {# debut du formulaire #}
-  {{form_widget (form) }}   {# contenu du formulaire #} 
-  {{form_end (form) }}      {# fin du formulaire #}
-  
-      <script>
-          function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
+
+    {{form_start (form) }}    {# debut du formulaire #}
+    {{form_widget (form) }}   {# contenu du formulaire #} 
+    {{form_end (form) }}      {# fin du formulaire #}
+
+    <script>
+
+        var geocoder;
+        var map;
+        googlePush(function () {
+            var uluru = {lat: -25.363, lng: 131.044};
+            map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 4,
+                center: uluru
+            });
+            var marker = new google.maps.Marker({
+                position: uluru,
+                map: map
+            });
+            geocoder = new google.maps.Geocoder();
+            var latlng = new google.maps.LatLng(-34.397, 150.644);
+            var mapOptions = {
+                zoom: 8,
+                center: latlng
+            }
+            map = new google.maps.Map(document.getElementById('map'), mapOptions);
+            document.getElementById('form_activity_locate').addEventListener('click', function (e) {
+                e.preventDefault();
+                codeAddress();
+            });
         });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
+
+        function codeAddress() {
+            var address = document.getElementById('form_activity_address').value;
+            geocoder.geocode({'address': address}, function (results, status) {
+                if (status == 'OK') {
+                    map.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                     document.getElementById('form_activity_longitude').value = results[0].geometry.location.lng();
+                     document.getElementById('form_activity_latitude').value = results[0].geometry.location.lat();
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+           
+        }
+
+
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK5dZ43HxZfc-rRmD8YA1UD81dqxelKsw&callback=initMap"></script>
-    
 {% endblock %}
 
 

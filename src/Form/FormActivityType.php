@@ -5,6 +5,7 @@ namespace App\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -31,13 +32,10 @@ class FormActivityType extends AbstractType
             ))
             ->add('pictures', FileType::class)
             ->add('prices', MoneyType::class)
-            ->add('tips', TextType::class) 
-            ->add('continent', TextType::class)
-            ->add('country', TextType::class) 
-            ->add('region', TextType::class) 
-            ->add('city', TextType::class) 
-            ->add('postalcode', TextType::class) 
-            ->add('address', TextType::class) 
+            ->add('tips', TextType::class)
+            ->add('address', TextareaType::class)
+            ->add('longitude', HiddenType::class)     
+            ->add('latitude', HiddenType::class)     
             ->getForm()                  
         ;
     }
