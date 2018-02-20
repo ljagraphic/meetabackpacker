@@ -7,7 +7,7 @@ easy_admin:
                     - id
                     - name
                     - lastName
-                    - { property: 'avatar', type: 'image', base_path: '/public/uploads' }
+                    - { property: 'avatar', type: 'image', base_path: '/uploads/avatar' }
                 
         Activity:
             class: App\Entity\Activity

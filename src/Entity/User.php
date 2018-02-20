@@ -92,7 +92,7 @@ class User implements UserInterface, \Serializable {
     private $role;
 
     /**
-     * @ORM\OneToMany(targetEntity="Advice", mappedBy="users")
+     * @ORM\OneToMany(targetEntity="Advice", mappedBy="user")
      * @var Collection
      */
     private $advices;
