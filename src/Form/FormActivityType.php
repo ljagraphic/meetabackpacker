@@ -25,6 +25,7 @@ class FormActivityType extends AbstractType
                     'Outdoor activity' => 'outdoor activity',
                     'Hotel/Hostel' => 'hotel/hostel',
                     'Curiosity' => 'curiosity',
+                    'shopping' => 'shopping',
                     'Eco tourism' => 'eco tourism'
                     ]
             ))
