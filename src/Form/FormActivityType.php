@@ -17,7 +17,7 @@ class FormActivityType extends AbstractType
     {
          $builder
             ->add('description', TextareaType::class)
-            ->add('activity', ChoiceType::class, array(
+            ->add('category', ChoiceType::class, array(
                 'choices' =>[
                     'Culture' => 'culture',
                     'Pub/Nigth Club' => 'pub/nigthclub',

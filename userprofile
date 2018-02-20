@@ -10,20 +10,20 @@
         <title>Enjoy Backpack</title>
 
         <!-- PLUGINS CSS STYLE -->
-        <link href="{{ asset('plugins/jquery-ui/jquery-ui.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('plugins/listtyicons/style.css') }}" rel="stylesheet">
-        <link href="{{ asset('plugins/bootstrapthumbnail/bootstrap-thumbnail.css') }}" rel="stylesheet">
-        <link href="{{ asset('plugins/datepicker/datepicker.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('plugins/selectbox/select_option1.css') }}" rel="stylesheet">
-        <link href="{{ asset('plugins/owl-carousel/owl.carousel.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('plugins/slick/slick.css') }}" rel="stylesheet">
-        <link href="{{ asset('plugins/slick/slick-theme.css') }}" rel="stylesheet">
-        <link href="{{ asset('plugins/fancybox/jquery.fancybox.min.css') }}" rel="stylesheet"/>
-        <link href="{{ asset('plugins/isotope/isotope.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('plugins/map/css/map.css') }}" rel="stylesheet">
-        <link href="{{ asset('plugins/rateyo/jquery.rateyo.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('plugins/animate/animate.css') }}" rel="stylesheet">
+        <link href="/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+        <link href="/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/plugins/listtyicons/style.css" rel="stylesheet">
+        <link href="/plugins/bootstrapthumbnail/bootstrap-thumbnail.css" rel="stylesheet">
+        <link href="/plugins/datepicker/datepicker.min.css" rel="stylesheet">
+        <link href="/plugins/selectbox/select_option1.css" rel="stylesheet">
+        <link href="/plugins/owl-carousel/owl.carousel.min.css" rel="stylesheet">
+        <link href="/plugins/slick/slick.css" rel="stylesheet">
+        <link href="/plugins/slick/slick-theme.css" rel="stylesheet">
+        <link href="/plugins/fancybox/jquery.fancybox.min.css" rel="stylesheet"/>
+        <link href="/plugins/isotope/isotope.min.css" rel="stylesheet">
+        <link href="/plugins/map/css/map.css" rel="stylesheet">
+        <link href="/plugins/rateyo/jquery.rateyo.min.css" rel="stylesheet">
+        <link href="/plugins/animate/animate.css" rel="stylesheet">
         <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
         <!-- GOOGLE FONT -->
         <link href="https://fonts.googleapis.com/css?family=Muli:200,300,400,600,700,800,900" rel="stylesheet">
@@ -32,12 +32,12 @@
         <link href="https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff" rel="stylesheet">
 
         <!-- CUSTOM CSS -->
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link href="/css/style.css" rel="stylesheet">
 
-        <link rel="stylesheet" href="{{ asset('css/default.css') }}" id="option_color">
+        <link rel="stylesheet" href="/css/default.css" id="option_color">
 
         <!-- FAVICON -->
-        <link href="{{ asset('img/favicon.png') }}" rel="shortcut icon">
+        <link href="/img/favicon.png" rel="shortcut icon">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -80,8 +80,8 @@
                                     <span class="icon-bar"></span>
                                     <span class="icon-bar"></span>
                                 </button>
-                                <a class="navbar-brand" href="{{ path('home') }}">
-                                    <img src="{{ asset('img/logo-ebp.png') }}" width="140" height="44">
+                                <a class="navbar-brand" href="/home">
+                                    <img src="/img/logo-ebp.png" width="140" height="44">
 
                                 </a>
                             </div>
@@ -90,7 +90,7 @@
                             <div class="collapse navbar-collapse navbar-ex1-collapse">
                                 <ul class="nav navbar-nav navbar-right">
                                     <li class="active dropdown singleDrop">
-                                        <a href="{{ path('home') }}">home<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                        <a href="/home">home<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 
                                     </li>
                                     <li class=" dropdown megaDropMenu">
@@ -118,7 +118,7 @@
                                             <li class="col-sm-4 col-xs-12">
                                                 <ul class="list-unstyled">
                                                     <li class="mega-img">
-                                                        <a href=""><img src="{{ asset('img/works/works-big-3.png') }}" alt=""></a>
+                                                        <a href=""><img src="/img/works/works-big-3.png" alt=""></a>
                                                     </li>
                                                 </ul>
                                             </li>
@@ -128,17 +128,17 @@
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">pages <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                         <ul class="dropdown-menu dropdown-menu-left">
                                             <li><a href="contact-us.html">Contact Us</a></li>
-                                            <li><a href="{{ path('signup') }}">Create Account</a></li>
-                                            <li><a href="{{ path('login') }}">Login</a></li>
+                                            <li><a href="/signup">Create Account</a></li>
+                                            <li><a href="/login">Login</a></li>
                                             <li><a href="how-it-works.html">How It Works</a></li>
-                                            <li><a href="{{ path('userprofile') }}">My Profile</a></li>
+                                            <li><a href="/userprofile">My Profile</a></li>
                                         </ul>
                                     </li>
                                     <li class=""><a href="blog.html">blog </a></li>
                                     <li class=" dropdown singleDrop">
                                         <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">admin <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                         <ul class="dropdown-menu dropdown-menu-left">
-                                            <li><a href="{{ path('dashboard') }}">Dashboard</a></li>
+                                            <li><a href="/admin/dashboard">Dashboard</a></li>
                                             <li><a href="add-listings.html">Add Listing</a></li>
                                             <li><a href="edit-listings.html">Edit Listing</a></li>
                                             <li><a href="booking-list.html">Booking List</a></li>
@@ -161,7 +161,56 @@
             <section class="clearfix bg-light">
             <div class="container">
 
-                {% block body %}{% endblock body %}
+                      <div class="container">
+    <h2>Welcome to your profil mongin franz </h2>    
+    <div class="user-profile">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+            <div class="dashboardBoxBg mb30">
+           <div class="profileImage">
+          <div class="user-img">
+            <img class="img-circle" src="/uploads/avatar/2c83bab417188755ef97a9edc905ee7a.jpeg" alt="User Image" width="170" height="170">
+          </div>
+        </div> </div></div>
+        <div class="col-xs-12 col-sm-8">
+       <div  class="dashboardBoxBg">
+        <div  class="profileIntro">
+          <div class="user-profile-content">
+            <h3 class="user-name">mafrax</h3>
+             <h3 class="user-name">mongin</h3>
+              <h3 class="user-name">franz</h3>
+              
+              
+
+            <span class="designation">Enjoy Backpack</span>
+            
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste necessitatibus eum, libero tempora consequuntur explicabo saepe aut sapiente iusto ipsum.</p>
+            
+            <ul class="user-contact-details">
+                
+              <li><img src="/img/icons/map-1.png" alt="Origin country" width="50" height="50">    FR</li>
+              <br>
+               <li><img src="/img/icons/worldwide-1.png" alt="language" width="50" height="50">    fr</li>
+              <br>
+              <li><img src="/img/icons/bday.png" alt="birthday" width="50" height="50">  1993-09-30</a></li>
+              <br>
+              <li><img src="/img/icons/sex.png" alt="sex" width="50" height="50">  male</a></li>
+              <br>              
+              <li><img src="/img/icons/email-1.png" alt="Email" width="50" height="50">  <a href="franz.mongin@gmail.com">franz.mongin@gmail.com</a></li>
+            </ul>
+           <!-- <div class="verified-user"><i class="fa fa-user-o" aria-hidden="true"></i> veryfied account</div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+    
+
+  
             </div>
         </section>
         <!-- FOOTER -->
@@ -173,7 +222,7 @@
                         <div class="col-sm-7 col-xs-12">
                             <div class="footerText">
                                 <a href="index.html" class="footerLogo">
-                                    <img src="{{ asset('img/logo-ebp.png') }}" width="140" height="44">
+                                    <img src="/img/logo-ebp.png" width="140" height="44">
                                 </a>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor</p>
                                 <ul class="list-styled list-contact">
@@ -283,27 +332,27 @@
     </div>
 
     <!-- JAVASCRIPTS -->
-    <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('plugins/jquery/jquery-migrate.js') }}"></script>
-    <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
-    <script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('plugins/smoothscroll/SmoothScroll.min.js') }}"></script>
-    <script src="{{ asset('plugins/waypoints/waypoints.min.js') }}"></script>
-    <script src="{{ asset('plugins/counter-up/jquery.counterup.min.js') }}"></script>
-    <script src="{{ asset('plugins/datepicker/bootstrap-datepicker.min.js') }}"></script>
-    <script src="{{ asset('plugins/selectbox/jquery.selectbox-0.1.3.min.js') }}"></script>
-    <script src="{{ asset('plugins/owl-carousel/owl.carousel.min.js') }}"></script>
-    <script src="{{ asset('plugins/slick/slick.min.js') }}"></script>
-    <script src="{{ asset('plugins/isotope/isotope.min.js') }}"></script>
-    <script src="{{ asset('plugins/fancybox/jquery.fancybox.min.js') }}"></script>
-    <script src="{{ asset('plugins/isotope/isotope-triger.min.js') }}"></script>
-    <script src="{{ asset('plugins/rateyo/jquery.rateyo.min.js') }}"></script>
+    <script src="/plugins/jquery/jquery.min.js"></script>
+    <script src="/plugins/jquery/jquery-migrate.js"></script>
+    <script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/plugins/smoothscroll/SmoothScroll.min.js"></script>
+    <script src="/plugins/waypoints/waypoints.min.js"></script>
+    <script src="/plugins/counter-up/jquery.counterup.min.js"></script>
+    <script src="/plugins/datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="/plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
+    <script src="/plugins/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/plugins/slick/slick.min.js"></script>
+    <script src="/plugins/isotope/isotope.min.js"></script>
+    <script src="/plugins/fancybox/jquery.fancybox.min.js"></script>
+    <script src="/plugins/isotope/isotope-triger.min.js"></script>
+    <script src="/plugins/rateyo/jquery.rateyo.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK5dZ43HxZfc-rRmD8YA1UD81dqxelKsw"></script>
-    <script src="{{ asset('plugins/map/js/rich-marker.js') }}"></script>
-    <script src="{{ asset('plugins/map/js/infobox_packed.js') }}"></script>
+    <script src="/plugins/map/js/rich-marker.js"></script>
+    <script src="/plugins/map/js/infobox_packed.js"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <script src="{{ asset('js/map.js') }}"></script>
-    <script src="{{ asset('js/custom.js') }}"></script>
+    <script src="js/map.js"></script>
+    <script src="js/custom.js"></script>
     
 
 
