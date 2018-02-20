@@ -1,18 +1,29 @@
 {% extends "layout.html.twig" %}
 
 {% block body %}
+  
       <div class="container">
-    {% block title %}<h2>Welcome to your profil {{ app.user.name }} {{ app.user.lastname }} </h2>{% endblock %}
-    
+     <section class="clearfix pageTitleSection bg-image" style="background-image: url({{ asset('img/background/prodileback.png') }}" alt="Origin country"  >
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="pageTitle">
+                        <h2> {% block title %}Welcome to your profile <br> {{ app.user.name }} {{ app.user.lastname }} {% endblock %}</h2>
+                </div>
+                </div>
+            </div>        	
+            <br>
+        </div>
+        <br>	
+    </section>  
     <div class="user-profile">
       <div class="row">
         <div class="col-xs-12 col-sm-4">
-            <div class="dashboardBoxBg mb30">
-           <div class="profileImage">
+
           <div class="user-img">
-            <img class="img-circle" src="{{ asset('uploads/avatar/' ~ app.user.avatar )}}" alt="User Image" width="170" height="170">
+            <img src="{{ asset('uploads/avatar/' ~ app.user.avatar )}}" alt="User Image">
           </div>
-        </div> </div></div>
+        </div> 
         <div class="col-xs-12 col-sm-8">
        <div  class="dashboardBoxBg">
         <div  class="profileIntro">
@@ -38,8 +49,14 @@
               <li><img src="{{ asset('img/icons/sex.png') }}" alt="sex" width="50" height="50">  {{ app.user.sex }}</a></li>
               <br>              
               <li><img src="{{ asset('img/icons/email-1.png') }}" alt="Email" width="50" height="50">  <a href="{{ app.user.email }}">{{ app.user.email }}</a></li>
+              <br> 
+              
+   
             </ul>
-           <!-- <div class="verified-user"><i class="fa fa-user-o" aria-hidden="true"></i> veryfied account</div>-->
+              <a href="{{ path('logout') }}"><button type="submit" class="btn btn-primary"><i class="fas fa-sign-out-alt fa-1x" aria-hidden="true"></i> LOGOUT </button></a>
+             <br> 
+           
+
           </div>
         </div>
       </div>
