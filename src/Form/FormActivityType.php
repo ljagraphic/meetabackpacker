@@ -36,6 +36,8 @@ class FormActivityType extends AbstractType
             ->add('country', TextType::class) 
             ->add('region', TextType::class) 
             ->add('city', TextType::class) 
+            ->add('postalcode', TextType::class) 
+            ->add('address', TextType::class) 
             ->getForm()                  
         ;
     }
