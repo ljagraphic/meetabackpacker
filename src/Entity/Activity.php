@@ -9,8 +9,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ActivitiesRepository")
  */
-class Activity
-{
+class Activity {
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -23,74 +23,43 @@ class Activity
      * var string
      */
     private $description;
-    
-     /**
+
+    /**
      * @ORM\Column(type="string", length=100)
      * var string
      */
     private $activity;
-    
+
     /**
      * @ORM\Column(type="string", length=255)
      * var string
      */
     private $pictures;
-    
+
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2)
      * var string
      */
     private $prices;
-    
+
     /**
      * @ORM\Column(type="string", length=255)
      * var string
      */
     private $tips;
-    
+
     /**
      * @ORM\Column(type="decimal", precision=9, scale=6)
      * var integer
      */
     private $longitude;
-    
+
     /**
      * @ORM\Column(type="decimal", precision=9, scale=6)
      * var integer
      */
     private $latitude;
-    
-    /**
-     * @ORM\Column(type="string", length=50)
-     * var string
-     */
-    private $continent;
-    
-    /**
-     * @ORM\Column(type="string", length=50)
-     * var string
-     */
-    private $country;
-    
-    /**
-     * @ORM\Column(type="string", length=50)
-     * var string
-     */
-    private $region;
-    
-    /**
-     * @ORM\Column(type="string", length=50)
-     * var string
-     */
-    private $city;
-    
-    
-    /**
-     * @ORM\Column(type="string", length=20)
-     * var string
-     */
-    private $postalcode;
-    
+
     /**
      * @ORM\Column(type="string", length=150)
      * var string
@@ -103,23 +72,23 @@ class Activity
      */
     private $creator;
 
-     /**
+    /**
      * @ORM\ManyToMany(targetEntity="User", inversedBy="myActivities")
      * @var Collection
      */
     private $users;
-    
-     /**
+
+    /**
      * @ORM\OneToMany(targetEntity="Advice", mappedBy="activity")
      * @var Collection
      */
     private $advices;
-    
+
     public function __construct() {
         $this->users = new ArrayCollection();
         $this->advices = new ArrayCollection();
     }
-    
+
     public function getId() {
         return $this->id;
     }
@@ -152,31 +121,9 @@ class Activity
         return $this->latitude;
     }
 
-    public function getContinent() {
-        return $this->continent;
-    }
-
-    public function getCountry() {
-        return $this->country;
-    }
-
-    public function getRegion() {
-        return $this->region;
-    }
-
-    public function getCity() {
-        return $this->city;
-    }
-    
-    public function getPostalcode() {
-        return $this->postalcode;
-    }
-
     public function getAddress() {
         return $this->address;
     }
-
-  
 
     public function getCreator(): User {
         return $this->creator;
@@ -230,31 +177,6 @@ class Activity
         return $this;
     }
 
-    public function setContinent($continent) {
-        $this->continent = $continent;
-        return $this;
-    }
-
-    public function setCountry($country) {
-        $this->country = $country;
-        return $this;
-    }
-
-    public function setRegion($region) {
-        $this->region = $region;
-        return $this;
-    }
-
-    public function setCity($city) {
-        $this->city = $city;
-        return $this;
-    }
-    
-      public function setPostalcode($postalcode) {
-        $this->postalcode = $postalcode;
-        return $this;
-    }
-
     public function setAddress($address) {
         $this->address = $address;
         return $this;
@@ -274,6 +196,5 @@ class Activity
         $this->advices = $advices;
         return $this;
     }
-
 
 }
