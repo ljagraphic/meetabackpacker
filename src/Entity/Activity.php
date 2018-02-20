@@ -83,6 +83,19 @@ class Activity
      * var string
      */
     private $city;
+    
+    
+    /**
+     * @ORM\Column(type="string", length=20)
+     * var string
+     */
+    private $postalcode;
+    
+    /**
+     * @ORM\Column(type="string", length=150)
+     * var string
+     */
+    private $address;
 
     /**
      * @ORM\ManyToOne(targetEntity="User", inversedBy="createdActivities")
@@ -154,6 +167,16 @@ class Activity
     public function getCity() {
         return $this->city;
     }
+    
+    public function getPostalcode() {
+        return $this->postalcode;
+    }
+
+    public function getAddress() {
+        return $this->address;
+    }
+
+  
 
     public function getCreator(): User {
         return $this->creator;
@@ -224,6 +247,16 @@ class Activity
 
     public function setCity($city) {
         $this->city = $city;
+        return $this;
+    }
+    
+      public function setPostalcode($postalcode) {
+        $this->postalcode = $postalcode;
+        return $this;
+    }
+
+    public function setAddress($address) {
+        $this->address = $address;
         return $this;
     }
 
