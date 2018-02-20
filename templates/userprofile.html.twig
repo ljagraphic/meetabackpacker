@@ -1,8 +1,54 @@
 {% extends "layout.html.twig" %}
 
 {% block body %}
+      <div class="container">
+    {% block title %}<h2>Welcome to your profil {{ app.user.name }} {{ app.user.lastname }} </h2>{% endblock %}
+    
+    <div class="user-profile">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+            <div class="dashboardBoxBg mb30">
+           <div class="profileImage">
+          <div class="user-img">
+            <img class="img-circle" src="{{ asset('uploads/avatar/' ~ app.user.avatar )}}" alt="User Image" width="170" height="170">
+          </div>
+        </div> </div></div>
+        <div class="col-xs-12 col-sm-8">
+       <div  class="dashboardBoxBg">
+        <div  class="profileIntro">
+          <div class="user-profile-content">
+            <h3 class="user-name">{{ app.user.userName }}</h3>
+             <h3 class="user-name">{{ app.user.name }}</h3>
+              <h3 class="user-name">{{ app.user.lastname }}</h3>
+              
+              
 
-    <h1>Bienvenue sur Votre profil</h1>
+            <span class="designation">Enjoy Backpack</span>
+            
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste necessitatibus eum, libero tempora consequuntur explicabo saepe aut sapiente iusto ipsum.</p>
+            
+            <ul class="user-contact-details">
+                
+              <li><img src="{{ asset('img/icons/map-1.png') }}" alt="Origin country" width="50" height="50">    {{ app.user.originCountry }}</li>
+              <br>
+               <li><img src="{{ asset('img/icons/worldwide-1.png') }}" alt="language" width="50" height="50">    {{ app.user.language }}</li>
+              <br>
+              <li><img src="{{ asset('img/icons/bday.png') }}" alt="birthday" width="50" height="50">  {{ app.user.birthday|date('Y-m-d') }}</a></li>
+              <br>
+              <li><img src="{{ asset('img/icons/sex.png') }}" alt="sex" width="50" height="50">  {{ app.user.sex }}</a></li>
+              <br>              
+              <li><img src="{{ asset('img/icons/email-1.png') }}" alt="Email" width="50" height="50">  <a href="{{ app.user.email }}">{{ app.user.email }}</a></li>
+            </ul>
+           <!-- <div class="verified-user"><i class="fa fa-user-o" aria-hidden="true"></i> veryfied account</div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
     
 
   

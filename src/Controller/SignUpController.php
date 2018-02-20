@@ -17,7 +17,7 @@ class SignUpController extends Controller {
     /**
      * @Route("/signup", name="signup")
      */
-    public function SignUpForm(ObjectManager $manager, Request $request ,UserPasswordEncoderInterface $passwordEncoder)
+    public function signUpForm(ObjectManager $manager, Request $request ,UserPasswordEncoderInterface $passwordEncoder)
             
     {
         
@@ -39,7 +39,7 @@ class SignUpController extends Controller {
            //Enregistrement du user
            $manager->persist($user);
            $manager->flush();
-           return $this->redirectToRoute('signin');
+           return $this->redirectToRoute('login');
        }
 
         return $this->render('signup.html.twig', [ 'form' => $form->createView() ]);
