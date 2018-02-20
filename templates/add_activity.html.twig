@@ -1,14 +1,43 @@
 {% extends "layout.html.twig" %}
 
+
+
 {% block body %}
+    
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+           }
+    </style>
+
     <h1>Ajouter une activité</h1>
     <p>Bienvenue sur la page d'ajout d'activité</p>
     
     {% use "bootstrap_4_layout.html.twig" %}
   
-  
+    <div id="map"></div>
+    
   {{form_start (form) }}    {# debut du formulaire #}
   {{form_widget (form) }}   {# contenu du formulaire #} 
   {{form_end (form) }}      {# fin du formulaire #}
   
+      <script>
+          function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK5dZ43HxZfc-rRmD8YA1UD81dqxelKsw&callback=initMap"></script>
+    
 {% endblock %}
+
+
+
