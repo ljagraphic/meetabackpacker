@@ -3,7 +3,6 @@
 
 
 {% block body %}
-<<<<<<< HEAD
 
     <section class="clearfix pageTitleSection bg-image" style="background-image: url({{ asset('img/background/activityback.png') }}" alt="Origin country"  >
         <div class="container">
@@ -18,21 +17,18 @@
     <div class="pageTitle">
         <h2>Add an Activity</h2>
     </div>
-=======
     
+
+   
+    
+    {% use "bootstrap_4_layout.html.twig" %}
+  
     <style>
         #map {
             height: 400px;
             width: 100%;
            }
     </style>
-
-    <h1>Ajouter une activité</h1>
-    <p>Bienvenue sur la page d'ajout d'activité</p>
-    
->>>>>>> 5f425a493536d82cde970ec2a1dabe625545b61e
-    {% use "bootstrap_4_layout.html.twig" %}
-  
     <div id="map"></div>
     
   {{form_start (form) }}    {# debut du formulaire #}
