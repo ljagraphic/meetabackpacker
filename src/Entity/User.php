@@ -65,7 +65,7 @@ class User implements UserInterface, \Serializable {
      * @ORM\Column(type="string", length=255)
      * @var string
      */
-    private $avatar;
+    public $avatar;
 
     /**
      * @ORM\Column(type="string", length=45)
