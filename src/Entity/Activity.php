@@ -28,8 +28,8 @@ class Activity {
      * @ORM\Column(type="string", length=100)
      * var string
      */
-    private $activity;
-
+    private $category;
+    
     /**
      * @ORM\Column(type="string", length=255)
      * var string
@@ -97,8 +97,8 @@ class Activity {
         return $this->description;
     }
 
-    public function getActivity() {
-        return $this->activity;
+    public function getCategory() {
+        return $this->category;
     }
 
     public function getPictures() {
@@ -147,8 +147,8 @@ class Activity {
         return $this;
     }
 
-    public function setActivity($activity) {
-        $this->activity = $activity;
+    public function setCategory($category) {
+        $this->category = $category;
         return $this;
     }
 

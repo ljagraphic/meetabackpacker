@@ -163,7 +163,7 @@
                                     <li class=" dropdown singleDrop">
                                         <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">admin <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                         <ul class="dropdown-menu dropdown-menu-left">
-                                            <li><a href="dashboard.html">Dashboard</a></li>
+                                            <li><a href="{{ path('dashboard') }}">Dashboard</a></li>
                                             <li><a href="add-listings.html">Add Listing</a></li>
                                             <li><a href="edit-listings.html">Edit Listing</a></li>
                                             <li><a href="booking-list.html">Booking List</a></li>
@@ -327,8 +327,9 @@
     <script src="{{ asset('plugins/map/js/rich-marker.js') }}"></script>
     <script src="{{ asset('plugins/map/js/infobox_packed.js') }}"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <script src="js/map.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="{{ asset('js/map.js') }}"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
+    
 
     
 

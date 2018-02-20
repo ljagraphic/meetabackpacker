@@ -32,7 +32,8 @@ class SignUpController extends Controller {
            $avatar = $user->getAvatar();
            $fileName= md5(uniqid()).'.'.$avatar->guessExtension();
            //move_upload_file
-           $avatar->move('uploads/avatar', $fileName);
+           $avatar->move('uploads/ava'
+                   . 'tar', $fileName);
            $user->setAvatar($fileName);
 
                  

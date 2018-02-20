@@ -1,0 +1,21 @@
+easy_admin:
+    entities:
+        User:
+            class: App\Entity\User
+            list:
+                fields: 
+                    - id
+                    - name
+                    - lastName
+                    - { property: 'avatar', type: 'image', base_path: '/uploads/avatar' }
+                
+        Activity:
+            class: App\Entity\Activity
+            list:
+                fields: ['id', 'name', 'lastName', 'avatar', 'email']
+                
+        Advice:
+            class: App\Entity\Advice
+            list:
+                fields: ['id', 'creator_id', 'category', 'country', 'city']
+
