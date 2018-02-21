@@ -87,6 +87,7 @@ class Activity {
     public function __construct() {
         $this->users = new ArrayCollection();
         $this->advices = new ArrayCollection();
+        $this->creator = new ArrayCollection();
     }
 
     public function getId() {

@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class FormActivityType extends AbstractType
@@ -35,7 +36,7 @@ class FormActivityType extends AbstractType
             ->add('tips', TextType::class)
             ->add('address', TextareaType::class)
             ->add('longitude', HiddenType::class)     
-            ->add('latitude', HiddenType::class)     
+            ->add('latitude', HiddenType::class)   
             ->getForm()                  
         ;
     }
