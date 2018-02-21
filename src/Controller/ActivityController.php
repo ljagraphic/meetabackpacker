@@ -17,6 +17,7 @@ class ActivityController extends Controller {
      */
     public function ActivtiyForm(ObjectManager $manager, Request $request) {
         $activity = new Activity();
+        $activity->setCreator($this->getUser());
         $form = $this->CreateForm(FormActivityType::class, $activity)
         ->add('locate', SubmitType::class, array(
             'label' => 'Locate'
