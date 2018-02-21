@@ -12,10 +12,25 @@ easy_admin:
         Activity:
             class: App\Entity\Activity
             list:
-                fields: ['id', 'name', 'lastName', 'avatar', 'email']
+                fields: 
+                    - id
+                    - creator
+                    - description
+                    - category
+                    - { property: 'pictures', type: 'image', base_path: '/uploads/picture' }
+                    - prices
+                    - tips
+                    - address
                 
         Advice:
             class: App\Entity\Advice
             list:
-                fields: ['id', 'creator_id', 'category', 'country', 'city']
+                fields: 
+                    - id
+                    - activity_id
+                    - user_id
+                    - register_date
+                    - message
+                    - actvity_notation
+                    - advice_notation
 
