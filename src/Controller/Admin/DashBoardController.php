@@ -20,11 +20,11 @@ class DashBoardController extends Controller {
     {
          
          $users = $userRepo->findAll();
-         $category = $activityRepo->findAll(); 
+         $activities = $activityRepo->findAll(); 
         
          
          
-        return $this->render('admin/dashboard.html.twig', [ 'users' => $users, 'category' => $category]);
+        return $this->render('admin/dashboard.html.twig', [ 'users' => $users, 'activities' => $activities]);
     }
 
 }

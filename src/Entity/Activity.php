@@ -70,7 +70,7 @@ class Activity {
      * @ORM\ManyToOne(targetEntity="User", inversedBy="createdActivities")
      * @var User
      */
-    private $creator;
+    public $creator;
 
     /**
      * @ORM\ManyToMany(targetEntity="User", inversedBy="myActivities")
