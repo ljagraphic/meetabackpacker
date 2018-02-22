@@ -17,12 +17,12 @@
     <div class="pageTitle">
         <h2>Add an Activity</h2>
     </div>
-    
 
-   
-    
+
+
+
     {% use "bootstrap_4_layout.html.twig" %}
-  
+
     <style>
         #map {
             height: 400px;
@@ -73,17 +73,24 @@
                         map: map,
                         position: results[0].geometry.location
                     });
-                     document.getElementById('form_activity_longitude').value = results[0].geometry.location.lng();
-                     document.getElementById('form_activity_latitude').value = results[0].geometry.location.lat();
+                    document.getElementById('form_activity_longitude').value = results[0].geometry.location.lng();
+                    document.getElementById('form_activity_latitude').value = results[0].geometry.location.lat();
                 } else {
                     alert('Geocode was not successful for the following reason: ' + status);
                 }
             });
-           
+
         }
 
 
+       
+
+
     </script>
+
+
+
+
 {% endblock %}
 
 

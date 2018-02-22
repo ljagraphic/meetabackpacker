@@ -13,6 +13,13 @@ class ActivitiesRepository extends ServiceEntityRepository
         parent::__construct($registry, Activity::class);
     }
 
+        
+      public function findAllActivities()
+    {
+          // SELECT * FROM activities
+        return $this->findAll();
+    }   
+    
     /*
     public function findBySomething($value)
     {

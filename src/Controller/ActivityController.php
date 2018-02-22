@@ -39,4 +39,11 @@ class ActivityController extends Controller {
         return $this->render('add_activity.html.twig', ['form' => $form->createView()]);
     }
 
+    
+    
+    
 }
+
+
+
+ 
