@@ -19,12 +19,31 @@
 
         var geocoder;
         var map;
-        var latitude;
-        var longitude;
-        var marker = new Array();
-
+        var pub = 'img/marker/drink.png';
+        var restaurant = 'img/marker/food.png';
+                   /* curiosity {
+                    icon: 'img/marker/curiosity.png'
+                    },
+                    pub/nigthclub: {
+                    icon: 'img/marker/drink.png'
+                    }
+                    eco tourism: {
+                    icon: 'img/marker/eco.png'
+                    }
+                    culture: {
+                    icon: 'img/marker/culture.png'
+                    }
+                    restaurant: {
+                    icon: 'img/marker/restaurant.png'
+                    }
+                    shopping: {
+                    icon: 'img/marker/shopping.png'
+                    }
+                    outdoor activity: {
+                    icon: 'img/marker/tourist.png'
+                    }
+                    }; */
         
-        console.log(marker);
             googlePush(function () {
                 var angers = {lat: 47.478419, lng: -0.5631660000000238};
                 map = new google.maps.Map(document.getElementById('map'), {
@@ -34,11 +53,13 @@
                 ;
                 {% for marker in markers %}
                     new google.maps.Marker({
+                        icon: {{marker.category}},
                         position: {
                             lat: {{marker.latitude}},
                             lng: {{marker.longitude}}
                         },
                         map: map
+                       
                     });
                    
                 {% endfor %}
