@@ -294,5 +294,9 @@ class User implements UserInterface, \Serializable {
         $this->createdActivities = $createdActivities;
         return $this;
     }
+    
+    public function __toString() {
+    return $this->name;
+}
 
 }

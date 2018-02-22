@@ -57,7 +57,9 @@
 						<div class="thingsBox thinsSpace">
 							<div class="thingsImage">
 								<img src="{{ asset('uploads/picture/' ~ activity.pictures )}}" alt="User Image">
-								<div class="thingsMask">
+								
+                                                                <a href="/activity/{{activity.id}}">
+                                                                <div class="thingsMask">
 									<ul class="list-inline rating">
 										<li><i class="fa fa-star" aria-hidden="true"></i></li>
 										<li><i class="fa fa-star" aria-hidden="true"></i></li>
@@ -65,9 +67,10 @@
 										<li><i class="fa fa-star" aria-hidden="true"></i></li>
 										<li><i class="fa fa-star" aria-hidden="true"></i></li>
 									</ul>
-									<a href="listing-details-left.html"><h2> {{ activity.title }}  <i class="fa fa-check-circle" aria-hidden="true"></i></h2></a>
+									<h2> {{ activity.title }}  <i class="fa fa-check-circle" aria-hidden="true"></i></h2>
 									<p> {{ activity.address }} </p>
 								</div>
+                                                                </a>
 							</div>
 							<div class="thingsCaption ">
 								<ul class="list-inline captionItem">

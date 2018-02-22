@@ -27,10 +27,10 @@ easy_admin:
             list:
                 fields:
                     - id
-                    - activity_id
-                    - user_id
-                    - register_date
+                    - registerDate
                     - message
-                    - activity_notation
-                    - advice_notation
+                    - activityNotation
+                    - adviceNotation
+                    - activity
+                    - user
                     
