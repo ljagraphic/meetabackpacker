@@ -18,17 +18,18 @@ class FormActivityType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
          $builder
+            ->add('title', TextType::class)     
             ->add('description', TextareaType::class)
             ->add('category', ChoiceType::class, array(
                 'choices' =>[
                     'Culture' => 'culture',
-                    'Pub/Nigth Club' => 'pub/nigthclub',
+                    'Bar' => 'bar',
                     'Restaurant' => 'restaurant',
-                    'Outdoor activity' => 'outdoor activity',
-                    'Hotel/Hostel' => 'hotel/hostel',
+                    'Outdoor activity' => 'outdooractivity',
+                    'Hotel' => 'hotel',
                     'Curiosity' => 'curiosity',
                     'shopping' => 'shopping',
-                    'Eco tourism' => 'eco tourism'
+                    'Eco tourism' => 'ecotourism'
                     ]
             ))
             ->add('pictures', FileType::class)
