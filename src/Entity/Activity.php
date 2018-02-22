@@ -22,6 +22,19 @@ class Activity {
      * @ORM\Column(type="text")
      * var string
      */
+    private $title;
+    function getTitle() {
+        return $this->title;
+    }
+
+    function setTitle($title) {
+        $this->title = $title;
+    }
+
+        /**
+     * @ORM\Column(type="text")
+     * var string
+     */
     private $description;
 
     /**

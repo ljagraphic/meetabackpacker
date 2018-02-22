@@ -12,7 +12,7 @@ easy_admin:
         Activity:
             class: App\Entity\Activity
             list:
-                fields: 
+                fields:
                     - id
                     - creator
                     - description
@@ -25,12 +25,12 @@ easy_admin:
         Advice:
             class: App\Entity\Advice
             list:
-                fields: 
+                fields:
                     - id
                     - activity_id
                     - user_id
                     - register_date
                     - message
-                    - actvity_notation
+                    - activity_notation
                     - advice_notation
-
+                    

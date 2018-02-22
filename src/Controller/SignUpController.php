@@ -35,7 +35,8 @@ class SignUpController extends Controller {
            $avatar->move('uploads/ava'
                    . 'tar', $fileName);
            $user->setAvatar($fileName);
-
+           $user->setActive('1');
+           $user->setRole('ROLE_USER');
                  
            //Enregistrement du user
            $manager->persist($user);

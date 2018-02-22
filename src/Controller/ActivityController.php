@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Activity;
 use App\Form\FormActivityType;
+use App\Repository\ActivitiesRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -13,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ActivityController extends Controller {
 
     /**
-     * @Route("/activity", name="activity")
+     * @Route("/addactivity", name="addactivity")
      */
     public function ActivtiyForm(ObjectManager $manager, Request $request) {
         $activity = new Activity();
@@ -39,5 +40,28 @@ class ActivityController extends Controller {
         }
         return $this->render('add_activity.html.twig', ['form' => $form->createView()]);
     }
+    
 
+
+
+     /**
+     * @Route("/listactivity", name="listactivity")
+     */
+    public function listActivity(ActivitiesRepository $activityRepo)
+
+   {
+
+       $activities = $activityRepo->findAll();
+
+       return $this->render('listactivity.html.twig', ['activities' => $activities]);
+
+   }
+    
+
+    
+    
 }
+
+
+
+ 
