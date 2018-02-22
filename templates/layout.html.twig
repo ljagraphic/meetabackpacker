@@ -50,22 +50,23 @@
         <script>
             var googleReady = false;
             var stackGoogle = []; // stack google contient l'ensemble des fonctions
-            
+
             function googlePush(callback) {
-                if(googleReady) {
-                    callback();
-                } else {
-                    // qui seront exécutées lorsque google sera prêt
-                    stackGoogle.push(callback);
-                }
+            if (googleReady) {
+            callback();
+            } else {
+            // qui seront exécutées lorsque google sera prêt
+            stackGoogle.push(callback);
             }
-            
+            }
+
             function initMap() {
-                googleReady = true;
-                for (callback of stackGoogle) {
-                    callback();
-                }
-                delete(stackGoogle);
+            googleReady = true;
+            for (callback of stackGoogle) {
+            callback();
+            }
+            delete(stackGoogle);
+  
             }
         </script>
 
@@ -155,7 +156,7 @@
                                             <li><a href="{{ path('logout') }}">Sign Out</a></li>
                                             <li><a href="{{ path('userprofile') }}">My Profile</a></li>
                                             <li><a href="{{ path('termsandconditions') }}">Terms and conditions</a></li>
-                                         
+
                                         </ul>
                                     </li>
                                     <li class=""><a href="blog.html">blog </a></li>
@@ -326,9 +327,9 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script src="{{ asset('js/map.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
-    
 
-    
+
+
 
 </body>
 

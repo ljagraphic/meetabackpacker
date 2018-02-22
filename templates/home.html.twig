@@ -3,7 +3,7 @@
 {% block body %}
     <style>
         #map {
-            height: 400px;
+            height: 650px;
             width: 100%;
         }
     </style>
@@ -19,13 +19,16 @@
 
         var geocoder;
         var map;
-        var latitude;
-        var longitude;
-        var marker = new Array();
-
-
-        
-        console.log(marker);
+        var bar = 'img/marker/markermap/barpub.png';
+        var restaurant = 'img/marker/markermap/foodrestaurant.png';
+        var culture = 'img/marker/markermap/culture.png';
+        var outdooractivity = 'img/marker/markermap/outdooractivity.png';
+        var hotel = 'img/marker/markermap/hostelhotel.png';
+        var curiosity = 'img/marker/markermap/curiosity.png';
+        var shopping = 'img/marker/markermap/shopping.png';
+        var ecotourism = 'img/marker/markermap/ecotourism.png';
+                    
+                    
             googlePush(function () {
                 var angers = {lat: 47.478419, lng: -0.5631660000000238};
                 map = new google.maps.Map(document.getElementById('map'), {
@@ -35,11 +38,13 @@
                 ;
                 {% for marker in markers %}
                     new google.maps.Marker({
+                        icon: {{marker.category}},
                         position: {
                             lat: {{marker.latitude}},
                             lng: {{marker.longitude}}
                         },
                         map: map
+                       
                     });
                    
                 {% endfor %}
@@ -57,7 +62,7 @@
 
     <section class="clearfix p0">
         <body id="body" class="body-wrapper boxed-menu" >
-            <div id="map-canvas" style="position: relative; overflow: hidden;"></div>
+   
             <section class="clearfix interestArea">
                 <div class="container">
                     <div class="page-header text-center">
