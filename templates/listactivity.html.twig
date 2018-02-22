@@ -1,0 +1,102 @@
+
+{% extends "layout.html.twig" %}
+
+
+
+{% block body %}
+  
+    <section class="clerfix categoryGrid">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4 col-xs-12">
+                    <div class="sidebarInner sidebarCategory">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Find Location</div>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="What are you looking for?" aria-describedby="basic-addon2">
+                                <a href="#" class="input-group-addon" id="basic-addon2"><i class="fa fa-search" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebarInner sidebarCategory">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">Related Categories</div>
+                            <div class="panel-body">
+                                <ul class="list-unstyle categoryList">
+                                    <li><a href="#">Restaurant</a></li>
+                                    <li><a href="#">Bar / Pub / Nightclub</a></li>
+                                    <li><a href="#">Hotel / Hostel</a></li>
+                                    <li><a href="#">Culture / Museum</a></li>
+                                    <li><a href="#">Eco Tourism</a></li>
+                                    <li><a href="#">Curiosity</a></li>
+                                    <li><a href="#">Shopping</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="resultBar">
+					<h2>We found <span>8</span> Results for you</h2>
+					<ul class="list-inline">
+						<li><a href="category-grid-full.html"><i class="fa fa-th" aria-hidden="true"></i></a></li>
+						<li class="active"><a href="category-list-right.html"><i class="fa fa-th-list" aria-hidden="true"></i></a></li>
+					</ul>
+				</div>
+                </div>    
+				
+  {% for activity in activities %}
+
+
+
+
+
+			
+		  
+					<div class="col-sm-4 col-xs-12">
+						<div class="thingsBox thinsSpace">
+							<div class="thingsImage">
+								<img src="{{ asset('uploads/picture/' ~ activity.pictures )}}" alt="User Image">
+								<div class="thingsMask">
+									<ul class="list-inline rating">
+										<li><i class="fa fa-star" aria-hidden="true"></i></li>
+										<li><i class="fa fa-star" aria-hidden="true"></i></li>
+										<li><i class="fa fa-star" aria-hidden="true"></i></li>
+										<li><i class="fa fa-star" aria-hidden="true"></i></li>
+										<li><i class="fa fa-star" aria-hidden="true"></i></li>
+									</ul>
+									<a href="listing-details-left.html"><h2> {{ activity.title }}  <i class="fa fa-check-circle" aria-hidden="true"></i></h2></a>
+									<p> {{ activity.address }} </p>
+								</div>
+							</div>
+							<div class="thingsCaption ">
+								<ul class="list-inline captionItem">
+									<li><i class="far fa-thumbs-up" style="color:blue" aria-hidden="true"></i> 8 k</li>
+									<li><a href="category-list-full.html"> {{ activity.category }}   </a></li>
+								</ul>
+							</div>
+                                                               
+                                                                
+						</div>
+                                                               
+					</div>
+				     {% endfor %}  
+				</div>
+                                                             
+                            </div>
+                                                                 
+		
+                                                            
+		
+	
+</section>           
+           
+         
+           
+
+
+{% endblock %}
+
+
+
+
