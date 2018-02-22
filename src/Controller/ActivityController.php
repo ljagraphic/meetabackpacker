@@ -14,9 +14,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class ActivityController extends Controller {
 
     /**
+     *
      * @Route("/addactivity", name="addactivity")
      */
     public function ActivtiyForm(ObjectManager $manager, Request $request) {
+        $this->denyAccessUnlessGranted('ROLE_USER',null,'Vous devez être connecté pour accéder à cette page !');
         $activity = new Activity();
         $activity->setCreator($this->getUser());
         $form = $this->CreateForm(FormActivityType::class, $activity)

@@ -181,39 +181,11 @@
 
         // Create a map object, and include the MapTypeId to add
         // to the map type control.
-   var geocoder;
-        var map;
-        var latitude;
-        var longitude;
-        var marker = new Array();
+   
+     
 
 
-        
-        console.log(marker);
-            googlePush(function () {
-                var angers = {lat: 47.478419, lng: -0.5631660000000238};
-                map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 4,
-                    center: angers,
-                });
-                ;
-                {% for marker in markers %}
-                    new google.maps.Marker({
-                        position: {
-                            lat: {{marker.latitude}},
-                            lng: {{marker.longitude}}
-                        },
-                        map: map
-                    });
-                   
-                {% endfor %}
-                geocoder = new google.maps.Geocoder();
-                var latlng = new google.maps.LatLng(48.864716, 2.349014);
-                var mapOptions = {
-                    zoom: 8,
-                    center: latlng
-                };
-            });
+      
 
         //Associate the styled map with the MapTypeId and set it to display.
         map.mapTypes.set('styled_map', styledMapType);
