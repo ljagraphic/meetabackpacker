@@ -17,12 +17,12 @@
     <div class="pageTitle">
         <h2>Add an Activity</h2>
     </div>
-    
 
-   
-    
+
+
+
     {% use "bootstrap_4_layout.html.twig" %}
-  
+
     <style>
         #map {
             height: 400px;
@@ -46,10 +46,13 @@
             map = new google.maps.Map(document.getElementById('map'), {
                 zoom: 8,
                 center: uluru
+                
+                   
             });
             var marker = new google.maps.Marker({
                 position: uluru,
                 map: map
+               
             });
             geocoder = new google.maps.Geocoder();
             var latlng = new google.maps.LatLng(-34.397, 150.644);
@@ -73,17 +76,24 @@
                         map: map,
                         position: results[0].geometry.location
                     });
-                     document.getElementById('form_activity_longitude').value = results[0].geometry.location.lng();
-                     document.getElementById('form_activity_latitude').value = results[0].geometry.location.lat();
+                    document.getElementById('form_activity_longitude').value = results[0].geometry.location.lng();
+                    document.getElementById('form_activity_latitude').value = results[0].geometry.location.lat();
                 } else {
                     alert('Geocode was not successful for the following reason: ' + status);
                 }
             });
-           
+
         }
 
 
+       
+
+
     </script>
+
+
+
+
 {% endblock %}
 
 
