@@ -19,6 +19,8 @@ class AdviceRegisterController extends Controller{
          // $this->denyAccessUnlessGranted('ROLE_USER',null,'Vous devez être connecté pour accéder à cette page !');
 
         $advice = new Advice();
+        $advice->setUser($this->getUser());
+
         $form = $this->createForm(FormAdviceType::class, $advice)
                 ->add('Envoyer', SubmitType::class);
 

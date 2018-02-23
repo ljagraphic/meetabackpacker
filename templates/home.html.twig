@@ -42,18 +42,21 @@
                         position: {
                             lat: {{marker.latitude}},
                             lng: {{marker.longitude}}
+                        content:        
                         },
                         map: map
                        
                     });
                    
                 {% endfor %}
+         
                 geocoder = new google.maps.Geocoder();
                 var latlng = new google.maps.LatLng(48.864716, 2.349014);
                 var mapOptions = {
                     zoom: 8,
                     center: latlng
                 };
+           
             });
     </script>
 
