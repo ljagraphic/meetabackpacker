@@ -17,7 +17,7 @@ class User implements UserInterface, \Serializable {
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    public $id;
 
     /**
      * @ORM\Column(type="string", length=50)
@@ -294,5 +294,9 @@ class User implements UserInterface, \Serializable {
         $this->createdActivities = $createdActivities;
         return $this;
     }
+    
+    public function __toString() {
+    return $this->name;
+}
 
 }

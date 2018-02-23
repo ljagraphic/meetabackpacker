@@ -114,5 +114,6 @@ class Advice {
         $this->user = $user;
         return $this;
     }
+    
 
 }
