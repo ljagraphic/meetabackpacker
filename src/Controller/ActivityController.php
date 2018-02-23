@@ -52,12 +52,16 @@ class ActivityController extends Controller {
     public function listActivity(ActivitiesRepository $activityRepo)
 
    {
-
+       $markers = $activityRepo->findAllActivities();
        $activities = $activityRepo->findAll();
 
-       return $this->render('listactivity.html.twig', ['activities' => $activities]);
+       return $this->render('listactivity.html.twig', [
+           'activities' => $activities,
+           'markers' => $markers
+           ]);
 
    }
+  
     
 
     

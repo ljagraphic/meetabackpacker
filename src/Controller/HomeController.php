@@ -9,7 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class HomeController extends Controller {
 
     /**
-     * @Route("/")
+     * @Route("")
      * @Route("/home", name="home")
      */
     public function getMarker(ActivitiesRepository $activityRepo)

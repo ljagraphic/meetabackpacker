@@ -38,7 +38,7 @@
     {{form_end (form) }}      {# fin du formulaire #}
 
     <script>
-
+        
         var geocoder;
         var map;
         googlePush(function () {
@@ -51,8 +51,8 @@
             });
             var marker = new google.maps.Marker({
                 position: uluru,
-                map: map
-               
+                map: map,
+    
             });
             geocoder = new google.maps.Geocoder();
             var latlng = new google.maps.LatLng(-34.397, 150.644);
@@ -74,7 +74,8 @@
                     map.setCenter(results[0].geometry.location);
                     var marker = new google.maps.Marker({
                         map: map,
-                        position: results[0].geometry.location
+                        position: results[0].geometry.location,
+                        
                     });
                     document.getElementById('form_activity_longitude').value = results[0].geometry.location.lng();
                     document.getElementById('form_activity_latitude').value = results[0].geometry.location.lat();
