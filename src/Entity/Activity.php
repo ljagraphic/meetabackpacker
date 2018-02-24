@@ -83,7 +83,7 @@ class Activity {
      * @ORM\ManyToOne(targetEntity="User", inversedBy="createdActivities")
      * @var User
      */
-    private $creator;
+    public $creator;
 
     /**
      * @ORM\ManyToMany(targetEntity="User", inversedBy="myActivities")
@@ -210,4 +210,8 @@ class Activity {
         return $this;
     }
 
+    public function __toString()
+{
+    return $this->getDescription();
+}
 }

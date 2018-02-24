@@ -27,35 +27,52 @@
         var curiosity = 'img/marker/markermap/curiosity.png';
         var shopping = 'img/marker/markermap/shopping.png';
         var ecotourism = 'img/marker/markermap/ecotourism.png';
-                    
-                    
-            googlePush(function () {
-                var angers = {lat: 47.478419, lng: -0.5631660000000238};
-                map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 4,
-                    center: angers,
-                });
-                ;
-                {% for marker in markers %}
-                    new google.maps.Marker({
-                        icon: {{marker.category}},
-                        position: {
-                            lat: {{marker.latitude}},
-                            lng: {{marker.longitude}}
-                        },
-                        map: map
-                       
-                    });
-                   
-                {% endfor %}
-                geocoder = new google.maps.Geocoder();
-                var latlng = new google.maps.LatLng(48.864716, 2.349014);
-                var mapOptions = {
-                    zoom: 8,
+        googlePush(function () {
+        var angers = {lat: 47.478419, lng: - 0.5631660000000238};
+        map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 4,
+                center: angers,
+        });
+        {% for marker in markers %}  
+        var description = "{{marker.description}}";
+        var category = "{{marker.category}}";
+        var prices = "{{marker.prices}}";
+        var tips = "{{marker.tips}}";
+        var address = "{{marker.address}}";
+        var contentString = description + category + prices + tips + address;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        var marker = new google.maps.Marker({
+                icon:{{marker.category}},
+                position: {
+                        lat:{{marker.latitude}},
+                        lng:{{marker.longitude}}
+                },
+                map: map,
+                info: new google.maps.InfoWindow({content: contentString})
+        });
+        google.maps.event.addListener(marker, 'click', (function() {
+        this.info.open(map, this);
+        }));
+        {% endfor %}
+
+            geocoder = new google.maps.Geocoder();
+            var latlng = new google.maps.LatLng(48.864716, 2.349014);
+            var mapOptions = {
+            zoom: 8,
                     center: latlng
-                };
+            };
             });
     </script>
+   
 
 
 

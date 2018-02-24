@@ -59,6 +59,10 @@
         <div>
             <h3>Activities list</h3>
                 <div class="user-profile-content">
+                    {%for activity in activities %}
+                        <h3 class="user-name">{{ activity.description }}</h3>
+                    {%endfor%}
+                    
                                        
                 </div>
                 
