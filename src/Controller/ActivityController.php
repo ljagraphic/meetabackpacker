@@ -4,12 +4,22 @@ namespace App\Controller;
 
 use App\Entity\Activity;
 use App\Form\FormActivityType;
+use App\Entity\Advice;
+use App\Form\FormAdviceType;
 use App\Repository\ActivitiesRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+
+
+
+
+
+
+
+
 
 class ActivityController extends Controller {
 
@@ -62,7 +72,33 @@ class ActivityController extends Controller {
 
    }
   
-    
+  /**
+     * @Route("/activity/{id}", name="advice_register")
+     */
+    public function AdviceForm(ObjectManager $manager, Request $request, Activity $activity) {
+         // $this->denyAccessUnlessGranted('ROLE_USER',null,'Vous devez être connecté pour accéder à cette page !');
+
+        $advice = new Advice();
+        $advice->setUser($this->getUser());
+
+        $form = $this->createForm(FormAdviceType::class, $advice)
+                ->add('Envoyer', SubmitType::class);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+
+            //Enregistrement de l'avis
+            $manager->persist($advice);
+            $manager->flush();
+        }
+
+        return $this->render('details_activity.html.twig', [
+                    'form' => $form->createView(),
+                    'activity' => $activity
+        ]);
+    }  
 
     
     
