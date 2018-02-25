@@ -51,7 +51,7 @@ class Advice {
      * @var User
      */
     private $user;
-
+    
     public function getId() {
         return $this->id;
     }
@@ -72,11 +72,11 @@ class Advice {
         return $this->adviceNotation;
     }
 
-    public function getActivity(): Activity {
+    public function getActivity() {
         return $this->activity;
     }
 
-    public function getUser(): User {
+    public function getUser(){
         return $this->user;
     }
 

@@ -138,7 +138,7 @@ class Activity {
         return $this->address;
     }
 
-    public function getCreator(): User {
+    public function getCreator() {
         return $this->creator;
     }
 
@@ -211,7 +211,7 @@ class Activity {
     }
 
     public function __toString()
-{
+    {
     return $this->getDescription();
-}
+    }
 }
