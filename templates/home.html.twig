@@ -34,21 +34,21 @@
                 center: angers,
         });
         {% for marker in markers %}  
+        var title = "{{marker.title}}";        
         var description = "{{marker.description}}";
         var category = "{{marker.category}}";
         var prices = "{{marker.prices}}";
         var tips = "{{marker.tips}}";
         var address = "{{marker.address}}";
-        var contentString = '<div>'+ description +'<br>'+ category +'<br>'+ prices +'<br>'+ tips +'<br>'+ address +'</div>';
+        var contentString = "<h1>"+ title + "</h1>" +"<br>"+"Description : "  + description 
+       +"<br> Category : " + category + "<br>  Price :" + prices +"<br> Tips : " 
+       + tips +"<br> Address : " + address;
         
         
         
         
         
-        
-        
-        
-        
+ 
         
         var marker = new google.maps.Marker({
                 icon:{{marker.category}},
@@ -59,9 +59,15 @@
                 map: map,
                 info: new google.maps.InfoWindow({content: contentString})
         });
-        google.maps.event.addListener(marker, 'click', (function() {
+       
+        google.maps.event.addListener(marker, 'click', (function() {   
         this.info.open(map, this);
-        }));
+        
+        
+
+        }));   
+        
+        
         {% endfor %}
 
             geocoder = new google.maps.Geocoder();

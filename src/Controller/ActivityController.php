@@ -27,10 +27,11 @@ class ActivityController extends Controller {
      *
      * @Route("/addactivity", name="addactivity")
      */
-    public function ActivtiyForm(ObjectManager $manager, Request $request) {
+    public function ActivtiyForm(ObjectManager $manager, Request $request,ActivitiesRepository $activityRepo){
         $this->denyAccessUnlessGranted('ROLE_USER',null,'Vous devez être connecté pour accéder à cette page !');
         $activity = new Activity();
         $activity->setCreator($this->getUser());
+          $markers = $activityRepo->findAllActivities();
         $form = $this->CreateForm(FormActivityType::class, $activity)
         ->add('locate', SubmitType::class, array(
             'label' => 'Locate'
@@ -50,7 +51,11 @@ class ActivityController extends Controller {
             $manager->flush();
             return $this->redirectToRoute('home');
         }
-        return $this->render('add_activity.html.twig', ['form' => $form->createView()]);
+        return $this->render('add_activity.html.twig', [
+          
+            'form' => $form->createView(),
+              'markers' => $markers
+                ]);
     }
     
 
