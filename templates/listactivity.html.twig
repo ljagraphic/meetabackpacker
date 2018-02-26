@@ -84,9 +84,9 @@
                             <div class="panel-heading">Filter by Area</div>
                             <div class="panel-body">
                                 <ul class="list-unstyle categoryList">
-                                  {% for activity in activities %}
-                                      <li><a href="{{ path('listactivity_by_category', { name : activity.category }) }}">{{activity.category}}</li>
-                                  {% endfor %}
+                              {% for category in categories() %}
+                                  <li><a href="listactivity/category/{{ category }}"/>{{ category }}</a></li>
+                              {% endfor %}
                                 </ul>
                             </div>
                         </div>

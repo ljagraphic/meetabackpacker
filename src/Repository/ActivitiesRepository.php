@@ -22,12 +22,20 @@ class ActivitiesRepository extends ServiceEntityRepository
       
     public function findByCategory($category) 
     {
-        $query = $this->getEntityManager()
-                ->createQuery(
-                            'SELECT * FROM activity WHERE category = :category'
-                        )
-                ->setParameter(':category', $category);
-       return $query;
+        $result = $this->createQueryBuilder('a')
+                ->where('a.category = :category')
+                ->setParameter(':category', $category)
+                ->getQuery()
+                ->getResult();
+       return $result;
+    }
+    public function getCategories()
+    {
+       
+        return $this->createQueryBuilder('a')
+                ->select('distinct a.category')
+                ->getQuery()
+                ->getResult();
     }
     /*
     public function findBySomething($value)

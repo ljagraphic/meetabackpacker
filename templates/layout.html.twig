@@ -52,21 +52,21 @@
             var stackGoogle = []; // stack google contient l'ensemble des fonctions
 
             function googlePush(callback) {
-            if (googleReady) {
-            callback();
-            } else {
-            // qui seront exécutées lorsque google sera prêt
-            stackGoogle.push(callback);
-            }
+                if (googleReady) {
+                    callback();
+                } else {
+                    // qui seront exécutées lorsque google sera prêt
+                    stackGoogle.push(callback);
+                }
             }
 
             function initMap() {
-            googleReady = true;
-            for (callback of stackGoogle) {
-            callback();
-            }
-            delete(stackGoogle);
-  
+                googleReady = true;
+                for (callback of stackGoogle) {
+                    callback();
+                }
+                delete(stackGoogle);
+
             }
         </script>
 
@@ -131,13 +131,9 @@
                                             <li class="col-sm-4 col-xs-12">
                                                 <ul class="list-unstyled">
                                                     <li><h5>Category</h5></li>
-                                                    <li><a href="listing-details-left.html">Restaurant</a></li>
-                                                    <li><a href="listing-details-left.html">Hotels-Hostels</a></li>
-                                                    <li><a href="listing-details-left.html">Bar-Pub-Clubs</a></li>
-                                                    <li><a href="listing-details-left.html">Ecotourism</a></li>
-                                                    <li><a href="listing-details-left.html">Museums</a></li>
-                                                    <li><a href="listing-details-left.html">Outdoor Activity</a></li>
-                                                    <li><a href="listing-details-left.html">Shopping</a></li>
+                                                        {% for category in categories() %}
+                                                        <li><a href="listactivity/category/{{ category }}"/>{{ category }}</a></li>
+                                                        {% endfor %}
                                                 </ul>
                                             </li>
                                             <li class="col-sm-4 col-xs-12">
@@ -167,7 +163,7 @@
                                         <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">admin <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                         <ul class="dropdown-menu dropdown-menu-left">
                                             <li><a href="{{ path('dashboard') }}">Dashboard</a></li>
-          
+
                                         </ul>
                                     </li>
                                 </ul>        
@@ -194,7 +190,7 @@
                                 <a href="#" class="footerLogo">
                                     <img src="{{ asset('img/logo-ebp.png') }}" width="140" height="44">
                                 </a>
-                                     <p>Share your place !</p>
+                                <p>Share your place !</p>
                                 <ul class="list-styled list-contact">
                                     <li><i class="fa fa-phone" aria-hidden="true"></i> 055-555-555</li>
                                     <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="#"> info@enjoybackpack.com</a></li>
@@ -207,12 +203,12 @@
                             </div>
                             <div class="useLink">
                                 <ul class="list-unstyled">
-                                     <li><a href="{{ path('addactivity') }}">Add an activity</a></li>                                   
+                                    <li><a href="{{ path('addactivity') }}">Add an activity</a></li>                                   
                                     <li><a href="{{ path('signup') }}">Create Account</a></li>
                                     <li><a href="{{ path('login') }}">Sign in</a></li>
                                     <li><a href="{{ path('logout') }}">Sign Out</a></li>
                                     <li><a href="{{ path('userprofile') }}">My Profile</a></li>
-                                     <li><a href="{{ path('termsandconditions') }}">Terms and conditions</a></li>
+                                    <li><a href="{{ path('termsandconditions') }}">Terms and conditions</a></li>
                                 </ul>
                             </div>
                         </div>

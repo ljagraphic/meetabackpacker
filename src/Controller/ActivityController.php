@@ -76,34 +76,20 @@ class ActivityController extends Controller {
            ]);
 
    }
-   
-<<<<<<< HEAD
+
     /**
-    * @Route("/listactivity/{name}", name="listactivity_by_category")
-    */
-   public function listActivityByCategory(ActivitiesRepository $activityRepo) {
-       $category = $activityRepo->findByCategory();
-       
-       return $this->render('listactivity_by_category.html.twig',[
-           'category' => $category
-       ]);
-=======
-   /**
-     * @Route("/listactivitybycategory/{category}", name="listactivitybycategory")
+     * @Route("/listactivity/category/{name}", name="list_product_by_tag")
      */
-    public function listActivityByCategory(ActivitiesRepository $activityRepo)
-
-   {
-       $markers = $activityRepo->findAllActivities();
-       $activities = $activityRepo->findAll();
-
-       return $this->render('listactivity.html.twig', [
+    public function getListByTag($name, ActivitiesRepository $activityRepo) {
+        $activities = $activityRepo->findByCategory($name);
+        $categories = $activityRepo->getCategories();
+        $markers = $activityRepo->findAllActivities();
+        return $this->render('listactivity_by_category.html.twig', [
            'activities' => $activities,
-           'markers' => $markers
-           ]);
-
->>>>>>> 5e4de41a956b8d8c81dfc3b4db65092bc98cc5fc
-   }
+            'categories' => $categories,
+            'markers' => $markers
+        ]);
+    }
   
     /**
      * @Route("/activity/{id}", name="advice_register")

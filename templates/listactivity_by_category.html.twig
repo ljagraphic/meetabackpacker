@@ -29,13 +29,14 @@
         var curiosity = 'img/marker/markermap/curiosity.png';
         var shopping = 'img/marker/markermap/shopping.png';
         var ecotourism = 'img/marker/markermap/ecotourism.png';
+        
         googlePush(function () {
         var angers = {lat: 47.478419, lng: - 0.5631660000000238};
         map = new google.maps.Map(document.getElementById('map'), {
         zoom: 4,
                 center: angers,
         });
-        {% for marker in markers %}  
+      {% for marker in markers %}  
         var description = "{{marker.description}}";
         var category = "{{marker.category}}";
         var prices = "{{marker.prices}}";
@@ -83,13 +84,9 @@
                             <div class="panel-heading">Filter by Area</div>
                             <div class="panel-body">
                                 <ul class="list-unstyle categoryList">
-                                    <li><a href="#">Restaurant</a></li>
-                                    <li><a href="#">Bar / Pub / Nightclub</a></li>
-                                    <li><a href="#">Hotel / Hostel</a></li>
-                                    <li><a href="#">Culture / Museum</a></li>
-                                    <li><a href="#">Eco Tourism</a></li>
-                                    <li><a href="#">Curiosity</a></li>
-                                    <li><a href="#">Shopping</a></li>
+                                 {% for category in categories() %}
+                                  <li><a href="listactivity/category/{{ category }}"/>{{ category }}</a></li>
+                                 {% endfor %}
                                 </ul>
                             </div>
                         </div>
