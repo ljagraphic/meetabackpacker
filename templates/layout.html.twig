@@ -154,18 +154,20 @@
                                             <li><a href="{{ path('logout') }}">Sign Out</a></li>
                                             <li><a href="{{ path('userprofile') }}">My Profile</a></li>
                                             <li><a href="{{ path('termsandconditions') }}">Terms and conditions</a></li>
-                                            <li><a href="{{ path('easyadmin') }}">admin</a></li>
+
 
                                         </ul>
                                     </li>
 
-                                    <li class=" dropdown singleDrop">
+                                    
+                                  {% if is_granted ('ROLE_ADMIN') %}
+                                     <li class=" dropdown singleDrop">
                                         <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">admin <i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                         <ul class="dropdown-menu dropdown-menu-left">
-                                            <li><a href="{{ path('dashboard') }}">Dashboard</a></li>
-
-                                        </ul>
+                                            <li><a href="{{ path('easyadmin') }}">Dashboard</a></li>         
+                                        </ul>                               
                                     </li>
+                                     {% endif %}
                                 </ul>        
                             </div>
                             <a class="btn btn-default navbar-btn" href="{{ path('addactivity') }}"> + <span>Add Activity</span></a>
