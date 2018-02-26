@@ -1,3 +1,4 @@
+{# empty Twig template #}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -100,11 +101,7 @@
                 elementType: 'labels.text.fill',
                 stylers: [{color: '#93817c'}]
               },
-               {
-                featureType: 'poi.business',
-                elementType: 'labels',
-                stylers: [{visibility: 'off'}]
-              },
+              
               {
                 featureType: 'poi.park',
                 elementType: 'geometry.fill',
@@ -313,9 +310,9 @@
             </header>
 
 
-
+                        <div class="container">
                 {% block body %}{% endblock body %}
-
+</div>
 
         <!-- FOOTER -->
         <footer class="footerWhite">
@@ -450,7 +447,7 @@
     <script src="{{ asset('plugins/isotope/isotope-triger.min.js') }}"></script>
     <script src="{{ asset('plugins/rateyo/jquery.rateyo.min.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAK5dZ43HxZfc-rRmD8YA1UD81dqxelKsw&callback=initMap"></script>
-
+    <script src="{{ asset('plugins/map/js/rich-marker.js') }}"></script>
     <script src="{{ asset('plugins/map/js/infobox_packed.js') }}"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script src="{{ asset('js/map.js') }}"></script>
