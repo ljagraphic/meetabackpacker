@@ -44,6 +44,7 @@ easy_admin:
                     - prices
                     - tips
                     - address
+
                     
         Advice:
             class: App\Entity\Advice

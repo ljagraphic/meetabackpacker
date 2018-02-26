@@ -71,6 +71,22 @@ class ActivityController extends Controller {
            ]);
 
    }
+   
+   /**
+     * @Route("/listactivitybycategory/{category}", name="listactivitybycategory")
+     */
+    public function listActivityByCategory(ActivitiesRepository $activityRepo)
+
+   {
+       $markers = $activityRepo->findAllActivities();
+       $activities = $activityRepo->findAll();
+
+       return $this->render('listactivity.html.twig', [
+           'activities' => $activities,
+           'markers' => $markers
+           ]);
+
+   }
   
   /**
      * @Route("/activity/{id}", name="advice_register")
@@ -93,6 +109,8 @@ class ActivityController extends Controller {
             $manager->persist($advice);
             $manager->flush();
         }
+        
+        
 
         return $this->render('details_activity.html.twig', [
                     'form' => $form->createView(),
