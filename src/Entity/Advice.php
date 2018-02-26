@@ -76,7 +76,7 @@ class Advice {
         return $this->activity;
     }
 
-    public function getUser(){
+    public function getUser() {
         return $this->user;
     }
 
