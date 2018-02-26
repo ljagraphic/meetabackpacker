@@ -64,7 +64,7 @@
         
         {% for marker in markers %}  
         var title = "{{marker.title}}";
-        var photo = '<img src="uploads/picture/{{marker.pictures}}">'
+        var picture = '<img src="uploads/picture/{{marker.pictures}}">'
         var description = "{{marker.description}}";
         var category = "{{marker.category}}";
         var prices = "{{marker.prices}}";
@@ -72,7 +72,7 @@
         var address = "{{marker.address}}";
         var contentString = "<h1>"+ title + "</h1>" +"<br>"+"Description : "  + description 
                             +"<br> Category : " + category + "<br>  Price :" + prices +"<br> Tips : " 
-                            + tips +"<br> Address : " + address + "<br>" + photo;
+                            + tips +"<br> Address : " + address + "<br>" + picture;
         
         
         

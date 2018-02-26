@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Activity;
-use App\Form\FormActivityType;
 use App\Entity\Advice;
+use App\Form\FormActivityType;
 use App\Form\FormAdviceType;
 use App\Repository\ActivitiesRepository;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -101,18 +101,23 @@ class ActivityController extends Controller {
 
         $advice = new Advice();
         $advice->setUser($this->getUser());
+        
+        
+
+        
 
         $form = $this->createForm(FormAdviceType::class, $advice)
                 ->add('Envoyer', SubmitType::class);
 
         $form->handleRequest($request);
-
+       
         if ($form->isSubmitted() && $form->isValid()) {
 
 
             //Enregistrement de l'avis
             $manager->persist($advice);
             $manager->flush();
+             return $this->redirectToRoute('home');
         }
         
         
@@ -120,6 +125,7 @@ class ActivityController extends Controller {
         return $this->render('details_activity.html.twig', [
                     'form' => $form->createView(),
                     'activity' => $activity
+                    
         ]);
     }  
 

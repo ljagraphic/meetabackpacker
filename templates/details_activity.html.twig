@@ -101,19 +101,17 @@
                                     <li><i class="fa fa-star" style="color:#FFB400;" aria-hidden="true"></i></li>
                                 </ul>
                             </div>
-                            <form action="#">
                                 <div class="formSection formSpace">
 
                                     <span>( 2 Reviews )</span>
                                     <ul class="list-inline captionItem">
                                         <li><i class="far fa-thumbs-up" style="color:#2196F3;" aria-hidden="true"></i> 10 k</li>
                                     </ul>
-                                  {{form_start (form) }}    {# debut du formulaire #}
+                                  {{form_start (form, {'attr' : {'action' : path('advice_register', {'id' : activity.id })}} ) }}    {# debut du formulaire #}
                                   {{form_widget (form) }}   {# contenu du formulaire #} 
                                   {{form_end (form) }}      {# fin du formulaire #}
 
                                </div>
-                            </form>
                         </div>
                     </div>
 
