@@ -7,7 +7,21 @@ easy_admin:
                     - id
                     - name
                     - lastName
+                    - email
+                    - birthday
+                    - sex                    
                     - { property: 'avatar', type: 'image', base_path: '/uploads/avatar' }
+                    
+            edit:
+                fields:
+                    - id
+                    - name
+                    - lastName
+                    - email
+                    - birthday
+                    - sex
+                    
+    # ...
                 
         Activity:
             class: App\Entity\Activity
@@ -21,7 +35,17 @@ easy_admin:
                     - prices
                     - tips
                     - address
-                
+
+            edit:
+                fields:
+                    - id
+                    - creator
+                    - description
+                    - prices
+                    - tips
+                    - address
+
+                    
         Advice:
             class: App\Entity\Advice
             list:
@@ -33,4 +57,13 @@ easy_admin:
                     - adviceNotation
                     - activity
                     - user
-                    
+ 
+            edit:
+                fields:
+                    - id
+                    - registerDate
+                    - message
+                    - activityNotation
+                    - adviceNotation
+                    - activity
+                    - user                    
