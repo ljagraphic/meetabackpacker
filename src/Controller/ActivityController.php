@@ -99,15 +99,7 @@ class ActivityController extends Controller {
 
         $advice = new Advice();
         $advice->setUser($this->getUser());
-<<<<<<< HEAD
-        $advice->setActivity($this->getActivity());
-=======
-        
-        
 
-        
-
->>>>>>> 6ddfbd58a67a9b0dd013b821fe9f7ee6f4bd140c
         $form = $this->createForm(FormAdviceType::class, $advice)
                 ->add('Envoyer', SubmitType::class);
 
