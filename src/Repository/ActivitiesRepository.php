@@ -19,7 +19,16 @@ class ActivitiesRepository extends ServiceEntityRepository
           // SELECT * FROM activities
         return $this->findAll();
     }   
-    
+      
+    public function findByCategory($category) 
+    {
+        $query = $this->getEntityManager()
+                ->createQuery(
+                            'SELECT * FROM activity WHERE category = :category'
+                        )
+                ->setParameter(':category', $category);
+       return $query;
+    }
     /*
     public function findBySomething($value)
     {

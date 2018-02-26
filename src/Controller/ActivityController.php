@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Activity;
-use App\Form\FormActivityType;
 use App\Entity\Advice;
+use App\Form\FormActivityType;
 use App\Form\FormAdviceType;
 use App\Repository\ActivitiesRepository;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -71,8 +71,19 @@ class ActivityController extends Controller {
            ]);
 
    }
+   
+    /**
+    * @Route("/listactivity/{name}", name="listactivity_by_category")
+    */
+   public function listActivityByCategory(ActivitiesRepository $activityRepo) {
+       $category = $activityRepo->findByCategory();
+       
+       return $this->render('listactivity_by_category.html.twig',[
+           'category' => $category
+       ]);
+   }
   
-  /**
+    /**
      * @Route("/activity/{id}", name="advice_register")
      */
     public function AdviceForm(ObjectManager $manager, Request $request, Activity $activity) {
