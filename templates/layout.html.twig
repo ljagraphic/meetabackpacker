@@ -132,7 +132,7 @@
                                                 <ul class="list-unstyled">
                                                     <li><h5>Category</h5></li>
                                                         {% for category in categories() %}
-                                                        <li><a href="listactivity/category/{{ category }}"/>{{ category }}</a></li>
+                                                        <li><a href="{{ path('listactivity_by_category',{ 'name': category }) }}"/>{{ category }}</a></li>
                                                         {% endfor %}
                                                 </ul>
                                             </li>

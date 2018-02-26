@@ -109,7 +109,7 @@
                             <div class="panel-body">
                                 <ul class="list-unstyle categoryList">
                               {% for category in categories() %}
-                                  <li><a href="listactivity/category/{{ category }}"/>{{ category }}</a></li>
+                                 <li><a href="{{ path('listactivity_by_category', { 'name': category }) }}"/>{{ category }}</a></li>
                               {% endfor %}
                                 </ul>
                             </div>
@@ -119,10 +119,9 @@
                 </div>
                 <div class="col-sm-8 col-xs-12">
                     <div class="resultBar">
-                        <h2>We found <span>8</span> Results for you</h2>
+                       
                         <ul class="list-inline">
-                            <li><a href="category-grid-full.html"><i class="fa fa-th" aria-hidden="true"></i></a></li>
-                            <li class="active"><a href="category-list-right.html"><i class="fa fa-th-list" aria-hidden="true"></i></a></li>
+                 
                         </ul>
                     </div>
 
@@ -149,7 +148,7 @@
                                     <div class="thingsCaption ">
                                         <ul class="list-inline captionItem">
                                             <li><i class="far fa-thumbs-up" style="color:#2196F3;" aria-hidden="true"></i> 8 k</li>
-                                            <li><a href="category-list-full.html">{{ activity.category }}</a></li>
+                                           <li><a href="{{ path('listactivity_by_category', {'name': activity.category }) }}">{{ activity.category }}</a></li>
                                         </ul>
                                     </div>
                                 </div>

@@ -78,7 +78,7 @@ class ActivityController extends Controller {
    }
 
     /**
-     * @Route("/listactivity/category/{name}", name="list_product_by_tag")
+     * @Route("/listactivity/category/{name}", name="listactivity_by_category")
      */
     public function getListByTag($name, ActivitiesRepository $activityRepo) {
         $activities = $activityRepo->findByCategory($name);
@@ -95,10 +95,11 @@ class ActivityController extends Controller {
      * @Route("/activity/{id}", name="advice_register")
      */
     public function AdviceForm(ObjectManager $manager, Request $request, Activity $activity) {
-         // $this->denyAccessUnlessGranted('ROLE_USER',null,'Vous devez être connecté pour accéder à cette page !');
+        $this->denyAccessUnlessGranted('ROLE_USER',null,'Vous devez être connecté pour accéder à cette page !');
 
         $advice = new Advice();
         $advice->setUser($this->getUser());
+        $advice->setActivity($activity);
 
         $form = $this->createForm(FormAdviceType::class, $advice)
                 ->add('Envoyer', SubmitType::class);
