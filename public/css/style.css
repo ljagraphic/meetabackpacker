@@ -5760,8 +5760,8 @@ margin-top:-30px}
 	background:linear-gradient(to right,#2196f3,#00c9ff);
 	-webkit-animation-name:qodefTargetRotate;
 	animation-name:qodefTargetRotate;
-	-webkit-animation-duration:2s;
-	animation-duration:2s;
+	-webkit-animation-duration:1s;
+	animation-duration:1s;
 	-webkit-animation-iteration-count:infinite;
 	animation-iteration-count:infinite;
 	-webkit-animation-timing-function:cubic-bezier(.38,.76,0,.87);
@@ -5784,8 +5784,8 @@ outline:transparent solid 1px}
 	background:#fff;
 	-webkit-animation-name:targetScale;
 	animation-name:targetScale;
-	-webkit-animation-duration:2s;
-	animation-duration:2s;
+	-webkit-animation-duration:1s;
+	animation-duration:1s;
 	-webkit-animation-iteration-count:infinite;
 	animation-iteration-count:infinite;
 	-webkit-animation-timing-function:cubic-bezier(.38,.76,0,.87);
@@ -5809,8 +5809,8 @@ animation-fill-mode:forwards}
 	background:linear-gradient(to right,#2196f3,#00c9ff);
 	-webkit-animation-name:targetScale;
 	animation-name:targetScale;
-	-webkit-animation-duration:2s;
-	animation-duration:2s;
+	-webkit-animation-duration:1s;
+	animation-duration:1s;
 	-webkit-animation-iteration-count:infinite;
 	animation-iteration-count:infinite;
 	-webkit-animation-timing-function:cubic-bezier(.38,.76,0,.67);
@@ -5832,8 +5832,8 @@ animation-fill-mode:forwards}
 	background:#fff;
 	-webkit-animation-name:qodefTargetScale;
 	animation-name:qodefTargetScale;
-	-webkit-animation-duration:2s;
-	animation-duration:2s;
+	-webkit-animation-duration:1s;
+	animation-duration:1s;
 	-webkit-animation-iteration-count:infinite;
 	animation-iteration-count:infinite;
 	-webkit-animation-timing-function:cubic-bezier(.38,.96,0,.37);
@@ -9788,3 +9788,7 @@ body.pattern-04
 	background-repeat:repeat;
 	background-attachment:fixed;
 background-position:center}
+
+.gm-style .gm-style-iw {
+	color:;
+}
