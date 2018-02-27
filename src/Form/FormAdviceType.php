@@ -16,7 +16,7 @@ class FormAdviceType extends AbstractType {
                 ->add('register_date', DateType::class)
                 ->add('message', TextType::class)
                 ->add('activityNotation', IntegerType::class)
-                ->add('adviceNotation', IntegerType::class)
+          
                 ->getForm()
 
         ;

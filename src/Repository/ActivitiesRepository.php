@@ -19,7 +19,24 @@ class ActivitiesRepository extends ServiceEntityRepository
           // SELECT * FROM activities
         return $this->findAll();
     }   
-    
+      
+    public function findByCategory($category) 
+    {
+        $result = $this->createQueryBuilder('a')
+                ->where('a.category = :category')
+                ->setParameter(':category', $category)
+                ->getQuery()
+                ->getResult();
+       return $result;
+    }
+    public function getCategories()
+    {
+       
+        return $this->createQueryBuilder('a')
+                ->select('distinct a.category')
+                ->getQuery()
+                ->getResult();
+    }
     /*
     public function findBySomething($value)
     {

@@ -45,160 +45,160 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
         <![endif]-->
-         <script>
+        <script>
             var googleReady = false;
             var stackGoogle = []; // stack google contient l'ensemble des fonctions
-            
+
             function googlePush(callback) {
-                if(googleReady) {
+                if (googleReady) {
                     callback();
                 } else {
                     // qui seront exécutées lorsque google sera prêt
                     stackGoogle.push(callback);
                 }
             }
-            
+
             function initMap() {
                 googleReady = true;
                 for (callback of stackGoogle) {
                     callback();
                 }
                 delete(stackGoogle);
-                
+
                 var styledMapType = new google.maps.StyledMapType(
-            [
-              {elementType: 'geometry', stylers: [{color: '#ebe3cd'}]},
-              {elementType: 'labels.text.fill', stylers: [{color: '#523735'}]},
-              {elementType: 'labels.text.stroke', stylers: [{color: '#f5f1e6'}]},
-              {
-                featureType: 'administrative',
-                elementType: 'geometry.stroke',
-                stylers: [{color: '#c9b2a6'}]
-              },
-              {
-                featureType: 'administrative.land_parcel',
-                elementType: 'geometry.stroke',
-                stylers: [{color: '#dcd2be'}]
-              },
-              {
-                featureType: 'administrative.land_parcel',
-                elementType: 'labels.text.fill',
-                stylers: [{color: '#ae9e90'}]
-              },
-              {
-                featureType: 'landscape.natural',
-                elementType: 'geometry',
-                stylers: [{color: '#E6E9EE'}]
-              },
-              {
-                featureType: 'poi',
-                elementType: 'geometry',
-                stylers: [{color: '#E6E9EE'}]
-              },
-              {
-                featureType: 'poi',
-                elementType: 'labels.text.fill',
-                stylers: [{color: '#93817c'}]
-              },
-               {
-                featureType: 'poi.business',
-                elementType: 'labels',
-                stylers: [{visibility: 'off'}]
-              },
-              {
-                featureType: 'poi.park',
-                elementType: 'geometry.fill',
-                stylers: [{color: '#90DFAA'}]
-              },
-              {
-                featureType: 'poi.park',
-                elementType: 'labels.text.fill',
-                stylers: [{color: '#447530'}]
-              },
-              {
-                featureType: 'road',
-                elementType: 'geometry',
-                stylers: [{color: '#f5f1e6'}]
-              },
-              {
-                featureType: 'road.arterial',
-                elementType: 'geometry',
-                stylers: [{color: '#fdfcf8'}]
-              },
-              {
-                featureType: 'road.highway',
-                elementType: 'geometry',
-                stylers: [{color: '#818183'}]
-              },
-              {
-                featureType: 'road.highway',
-                elementType: 'geometry.stroke',
-                stylers: [{color: '#E6E9EE'}]
-              },
-              {
-                featureType: 'road.highway.controlled_access',
-                elementType: 'geometry',
-                stylers: [{color: '#ced5ea'}]
-              },
-              {
-                featureType: 'road.highway.controlled_access',
-                elementType: 'geometry.stroke',
-                stylers: [{color: '#db8555'}]
-              },
-              {
-                featureType: 'road.local',
-                elementType: 'labels.text.fill',
-                stylers: [{color: '#806b63'}]
-              },
-              {
-                featureType: 'transit.line',
-                elementType: 'geometry',
-                stylers: [{color: '#dfd2ae'}]
-              },
-              {
-                featureType: 'transit.line',
-                elementType: 'labels.text.fill',
-                stylers: [{color: '#8f7d77'}]
-              },
-              {
-                featureType: 'transit.line',
-                elementType: 'labels.text.stroke',
-                stylers: [{color: '#ebe3cd'}]
-              },
-              {
-                featureType: 'transit.station',
-                elementType: 'geometry',
-                stylers: [{color: '#dfd2ae'}]
-              },
-              {
-                featureType: 'water',
-                elementType: 'geometry.fill',
-                stylers: [{color: '#13B5C7'}]
-              },
-              {
-                featureType: 'water',
-                elementType: 'labels.text.fill',
-                stylers: [{color: '#92998d'}]
-              }
-            ],
-            {name: 'Styled Map'});
+                        [
+                            {elementType: 'geometry', stylers: [{color: '#ebe3cd'}]},
+                            {elementType: 'labels.text.fill', stylers: [{color: '#523735'}]},
+                            {elementType: 'labels.text.stroke', stylers: [{color: '#f5f1e6'}]},
+                            {
+                                featureType: 'administrative',
+                                elementType: 'geometry.stroke',
+                                stylers: [{color: '#c9b2a6'}]
+                            },
+                            {
+                                featureType: 'administrative.land_parcel',
+                                elementType: 'geometry.stroke',
+                                stylers: [{color: '#dcd2be'}]
+                            },
+                            {
+                                featureType: 'administrative.land_parcel',
+                                elementType: 'labels.text.fill',
+                                stylers: [{color: '#ae9e90'}]
+                            },
+                            {
+                                featureType: 'landscape.natural',
+                                elementType: 'geometry',
+                                stylers: [{color: '#E6E9EE'}]
+                            },
+                            {
+                                featureType: 'poi',
+                                elementType: 'geometry',
+                                stylers: [{color: '#E6E9EE'}]
+                            },
+                            {
+                                featureType: 'poi',
+                                elementType: 'labels.text.fill',
+                                stylers: [{color: '#93817c'}]
+                            },
+                            {
+                                featureType: 'poi.business',
+                                elementType: 'labels',
+                                stylers: [{visibility: 'off'}]
+                            },
+                            {
+                                featureType: 'poi.park',
+                                elementType: 'geometry.fill',
+                                stylers: [{color: '#90DFAA'}]
+                            },
+                            {
+                                featureType: 'poi.park',
+                                elementType: 'labels.text.fill',
+                                stylers: [{color: '#447530'}]
+                            },
+                            {
+                                featureType: 'road',
+                                elementType: 'geometry',
+                                stylers: [{color: '#f5f1e6'}]
+                            },
+                            {
+                                featureType: 'road.arterial',
+                                elementType: 'geometry',
+                                stylers: [{color: '#fdfcf8'}]
+                            },
+                            {
+                                featureType: 'road.highway',
+                                elementType: 'geometry',
+                                stylers: [{color: '#818183'}]
+                            },
+                            {
+                                featureType: 'road.highway',
+                                elementType: 'geometry.stroke',
+                                stylers: [{color: '#E6E9EE'}]
+                            },
+                            {
+                                featureType: 'road.highway.controlled_access',
+                                elementType: 'geometry',
+                                stylers: [{color: '#ced5ea'}]
+                            },
+                            {
+                                featureType: 'road.highway.controlled_access',
+                                elementType: 'geometry.stroke',
+                                stylers: [{color: '#db8555'}]
+                            },
+                            {
+                                featureType: 'road.local',
+                                elementType: 'labels.text.fill',
+                                stylers: [{color: '#806b63'}]
+                            },
+                            {
+                                featureType: 'transit.line',
+                                elementType: 'geometry',
+                                stylers: [{color: '#dfd2ae'}]
+                            },
+                            {
+                                featureType: 'transit.line',
+                                elementType: 'labels.text.fill',
+                                stylers: [{color: '#8f7d77'}]
+                            },
+                            {
+                                featureType: 'transit.line',
+                                elementType: 'labels.text.stroke',
+                                stylers: [{color: '#ebe3cd'}]
+                            },
+                            {
+                                featureType: 'transit.station',
+                                elementType: 'geometry',
+                                stylers: [{color: '#dfd2ae'}]
+                            },
+                            {
+                                featureType: 'water',
+                                elementType: 'geometry.fill',
+                                stylers: [{color: '#13B5C7'}]
+                            },
+                            {
+                                featureType: 'water',
+                                elementType: 'labels.text.fill',
+                                stylers: [{color: '#92998d'}]
+                            }
+                        ],
+                        {name: 'Styled Map'});
 
-        // Create a map object, and include the MapTypeId to add
-        // to the map type control.
-   
-     
+                // Create a map object, and include the MapTypeId to add
+                // to the map type control.
 
 
-      
 
-        //Associate the styled map with the MapTypeId and set it to display.
-        map.mapTypes.set('styled_map', styledMapType);
-        map.setMapTypeId('styled_map');
 
-                
-                
-                
-                
+
+
+                //Associate the styled map with the MapTypeId and set it to display.
+                map.mapTypes.set('styled_map', styledMapType);
+                map.setMapTypeId('styled_map');
+
+
+
+
+
             }
         </script>
 
@@ -248,7 +248,7 @@
                                     <li class="active dropdown singleDrop">
                                         <a href="{{ path('home') }}">home<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 
-                                                                      </li>
+                                    </li>
                                     <li class=" dropdown megaDropMenu">
                                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Activity<i class="fa fa-angle-down" aria-hidden="true"></i></a>
                                         <ul class="row dropdown-menu">
@@ -263,13 +263,9 @@
                                             <li class="col-sm-4 col-xs-12">
                                                 <ul class="list-unstyled">
                                                     <li><h5>Category</h5></li>
-                                                    <li><a href="listing-details-left.html">Restaurant</a></li>
-                                                    <li><a href="listing-details-left.html">Hotels-Hostels</a></li>
-                                                    <li><a href="listing-details-left.html">Bar-Pub-Clubs</a></li>
-                                                    <li><a href="listing-details-left.html">Ecotourism</a></li>
-                                                    <li><a href="listing-details-left.html">Museums</a></li>
-                                                    <li><a href="listing-details-left.html">Outdoor Activity</a></li>
-                                                    <li><a href="listing-details-left.html">Shopping</a></li>
+                                                        {% for category in categories() %}
+                                                        <li><a href="listactivity/category/{{ category }}"/>{{ category }}</a></li>
+                                                        {% endfor %}
                                                 </ul>
                                             </li>
                                             <li class="col-sm-4 col-xs-12">
@@ -292,21 +288,21 @@
                                             <li><a href="{{ path('termsandconditions') }}">Terms and conditions</a></li>
                                         </ul>                                       
                                     </li>
-                                    
-                                  {% if is_granted ('ROLE_ADMIN') %}
-                                     <li class=" dropdown singleDrop">
-                                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">admin <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                        <ul class="dropdown-menu dropdown-menu-left">
-                                            <li><a href="{{ path('easyadmin') }}">Dashboard</a></li>         
-                                        </ul>                               
-                                    </li>
-                                     {% endif %}
-                                    
-                                    
-                                    
+
+                                    {% if is_granted ('ROLE_ADMIN') %}
+                                        <li class=" dropdown singleDrop">
+                                            <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">admin <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                            <ul class="dropdown-menu dropdown-menu-left">
+                                                <li><a href="{{ path('easyadmin') }}">Dashboard</a></li>         
+                                            </ul>                               
+                                        </li>
+                                    {% endif %}
+
+
+
                                 </ul>
                             </div>
-                             <a class="btn btn-default navbar-btn" href="{{ path('addactivity') }}"> + <span>Add Activity</span></a>
+                            <a class="btn btn-default navbar-btn" href="{{ path('addactivity') }}"> + <span>Add Activity</span></a>
                         </div>
                     </nav>
                 </div>
@@ -314,7 +310,7 @@
 
 
 
-                {% block body %}{% endblock body %}
+        {% block body %}{% endblock body %}
 
 
         <!-- FOOTER -->
@@ -341,12 +337,12 @@
                             </div>
                             <div class="useLink">
                                 <ul class="list-unstyled">
-                                     <li><a href="{{ path('addactivity') }}">Add an activity</a></li>                                   
+                                    <li><a href="{{ path('addactivity') }}">Add an activity</a></li>                                   
                                     <li><a href="{{ path('signup') }}">Create Account</a></li>
                                     <li><a href="{{ path('login') }}">Sign in</a></li>
                                     <li><a href="{{ path('logout') }}">Sign Out</a></li>
                                     <li><a href="{{ path('userprofile') }}">My Profile</a></li>
-                                     <li><a href="{{ path('termsandconditions') }}">Terms and conditions</a></li>
+                                    <li><a href="{{ path('termsandconditions') }}">Terms and conditions</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -455,12 +451,14 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     <script src="{{ asset('js/map.js') }}"></script>
     <script src="{{ asset('js/custom.js') }}"></script>
-    
+
 
 
 </body>
 
 </html>
+
+
 
 
 

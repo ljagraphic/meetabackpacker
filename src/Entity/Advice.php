@@ -35,7 +35,7 @@ class Advice {
     private $activityNotation;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=TRUE)
      * var integer
      */
     private $adviceNotation;
@@ -74,6 +74,7 @@ class Advice {
 
     public function getActivity() {
         return $this->activity;
+       
     }
 
     public function getUser() {

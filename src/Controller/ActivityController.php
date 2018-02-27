@@ -3,8 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Activity;
-use App\Form\FormActivityType;
 use App\Entity\Advice;
+use App\Form\FormActivityType;
 use App\Form\FormAdviceType;
 use App\Repository\ActivitiesRepository;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -76,43 +76,43 @@ class ActivityController extends Controller {
            ]);
 
    }
-   
-   /**
-     * @Route("/listactivitybycategory/{category}", name="listactivitybycategory")
+
+    /**
+     * @Route("/listactivity/category/{name}", name="listactivity_by_category")
      */
-    public function listActivityByCategory(ActivitiesRepository $activityRepo)
-
-   {
-       $markers = $activityRepo->findAllActivities();
-       $activities = $activityRepo->findAll();
-
-       return $this->render('listactivity.html.twig', [
+    public function getListByTag($name, ActivitiesRepository $activityRepo) {
+        $activities = $activityRepo->findByCategory($name);
+        $categories = $activityRepo->getCategories();
+        $markers = $activityRepo->findAllActivities();
+        return $this->render('listactivity_by_category.html.twig', [
            'activities' => $activities,
-           'markers' => $markers
-           ]);
-
-   }
+            'categories' => $categories,
+            'markers' => $markers
+        ]);
+    }
   
-  /**
+    /**
      * @Route("/activity/{id}", name="advice_register")
      */
     public function AdviceForm(ObjectManager $manager, Request $request, Activity $activity) {
-         // $this->denyAccessUnlessGranted('ROLE_USER',null,'Vous devez être connecté pour accéder à cette page !');
+        $this->denyAccessUnlessGranted('ROLE_USER',null,'Vous devez être connecté pour accéder à cette page !');
 
         $advice = new Advice();
         $advice->setUser($this->getUser());
+        $advice->setActivity($activity);
 
         $form = $this->createForm(FormAdviceType::class, $advice)
                 ->add('Envoyer', SubmitType::class);
 
         $form->handleRequest($request);
-
+       
         if ($form->isSubmitted() && $form->isValid()) {
 
 
             //Enregistrement de l'avis
             $manager->persist($advice);
             $manager->flush();
+             return $this->redirectToRoute('home');
         }
         
         
@@ -120,6 +120,7 @@ class ActivityController extends Controller {
         return $this->render('details_activity.html.twig', [
                     'form' => $form->createView(),
                     'activity' => $activity
+                    
         ]);
     }  
 
