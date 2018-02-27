@@ -12,10 +12,10 @@ class HomeController extends Controller {
      * @Route("")
      * @Route("/home", name="home")
      */
-    public function getMarker(ActivitiesRepository $activityRepo)
-    {   $markers = $activityRepo->findAllActivities();
-        return $this->render('home.html.twig',[
-            'markers' => $markers
+    public function getMarker(ActivitiesRepository $activityRepo) {
+        $markers = $activityRepo->findAllActivities();
+        return $this->render('home.html.twig', [
+                    'markers' => $markers
         ]);
     }
 

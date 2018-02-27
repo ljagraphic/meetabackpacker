@@ -35,8 +35,8 @@ class CategoryExtension extends AbstractExtension {
     public function getCategories() {
         $activities = $this->activityRepo->getCategories();
         $categories = [];
-        foreach($activities as $activiity) {
-            $categories[] = $activiity['category'];
+        foreach($activities as $activity) {
+            $categories[] = $activity['category'];
         }
         return $categories;
     }

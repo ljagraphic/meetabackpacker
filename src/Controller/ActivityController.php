@@ -13,30 +13,22 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-
-
-
-
-
-
-
-
 class ActivityController extends Controller {
 
     /**
      *
      * @Route("/addactivity", name="addactivity")
      */
-    public function ActivtiyForm(ObjectManager $manager, Request $request,ActivitiesRepository $activityRepo){
-        $this->denyAccessUnlessGranted('ROLE_USER',null,'Vous devez être connecté pour accéder à cette page !');
+    public function ActivtiyForm(ObjectManager $manager, Request $request, ActivitiesRepository $activityRepo) {
+        $this->denyAccessUnlessGranted('ROLE_USER', null, 'Vous devez être connecté pour accéder à cette page !');
         $activity = new Activity();
         $activity->setCreator($this->getUser());
-          $markers = $activityRepo->findAllActivities();
+        $markers = $activityRepo->findAllActivities();
         $form = $this->CreateForm(FormActivityType::class, $activity)
-        ->add('locate', SubmitType::class, array(
-            'label' => 'Locate'
-        ))
-        ->add('Add activity', SubmitType::class);
+                ->add('locate', SubmitType::class, array(
+                    'label' => 'Locate'
+                ))
+                ->add('Add activity', SubmitType::class);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             //upload du fichier image
@@ -52,30 +44,23 @@ class ActivityController extends Controller {
             return $this->redirectToRoute('home');
         }
         return $this->render('add_activity.html.twig', [
-          
-            'form' => $form->createView(),
-              'markers' => $markers
-                ]);
+                    'form' => $form->createView(),
+                    'markers' => $markers
+        ]);
     }
-    
 
-
-
-     /**
+    /**
      * @Route("/listactivity", name="listactivity")
      */
-    public function listActivity(ActivitiesRepository $activityRepo)
+    public function listActivity(ActivitiesRepository $activityRepo) {
+        $markers = $activityRepo->findAllActivities();
+        $activities = $activityRepo->findAll();
 
-   {
-       $markers = $activityRepo->findAllActivities();
-       $activities = $activityRepo->findAll();
-
-       return $this->render('listactivity.html.twig', [
-           'activities' => $activities,
-           'markers' => $markers
-           ]);
-
-   }
+        return $this->render('listactivity.html.twig', [
+                    'activities' => $activities,
+                    'markers' => $markers
+        ]);
+    }
 
     /**
      * @Route("/listactivity/category/{name}", name="listactivity_by_category")
@@ -85,17 +70,17 @@ class ActivityController extends Controller {
         $categories = $activityRepo->getCategories();
         $markers = $activityRepo->findAllActivities();
         return $this->render('listactivity_by_category.html.twig', [
-           'activities' => $activities,
-            'categories' => $categories,
-            'markers' => $markers
+                    'activities' => $activities,
+                    'categories' => $categories,
+                    'markers' => $markers
         ]);
     }
-  
+
     /**
      * @Route("/activity/{id}", name="advice_register")
      */
     public function AdviceForm(ObjectManager $manager, Request $request, Activity $activity) {
-        $this->denyAccessUnlessGranted('ROLE_USER',null,'Vous devez être connecté pour accéder à cette page !');
+        $this->denyAccessUnlessGranted('ROLE_USER', null, 'Vous devez être connecté pour accéder à cette page !');
 
         $advice = new Advice();
         $advice->setUser($this->getUser());
@@ -105,29 +90,22 @@ class ActivityController extends Controller {
                 ->add('Envoyer', SubmitType::class);
 
         $form->handleRequest($request);
-       
+
         if ($form->isSubmitted() && $form->isValid()) {
 
 
             //Enregistrement de l'avis
             $manager->persist($advice);
             $manager->flush();
-             return $this->redirectToRoute('home');
+            return $this->redirectToRoute('home');
         }
-        
-        
+
+
 
         return $this->render('details_activity.html.twig', [
                     'form' => $form->createView(),
                     'activity' => $activity
-                    
         ]);
-    }  
+    }
 
-    
-    
 }
-
-
-
- 
